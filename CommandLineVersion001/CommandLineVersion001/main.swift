@@ -48,6 +48,7 @@ let cards = [
     Card(id: 3, name: "Card3", placePay: [restaurantPay], cashbackPercentage: 3.0, icon: "card_icon3")
 ]
 
+print("*** Реализация выбора карты с макс процентом кэшбека. Применение структур, методов. Вывод в консоль *** \n")
 if let bestCard = findBestCard(for: restaurantPay, from: cards) {
     print("Выбрана карточка \(bestCard.name) с процентом кэшбека \(bestCard.cashbackPercentage)%")
 } else {
