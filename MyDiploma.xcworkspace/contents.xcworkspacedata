@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:CommandLineFinalVersion100/CommandLineFinalVersion100.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CommandLineVersion011/CommandLineVersion011.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CommandLineVersion010/CommandLineVersion010.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CommandLineVersion001/CommandLineVersion001.xcodeproj">
+   </FileRef>
+</Workspace>
