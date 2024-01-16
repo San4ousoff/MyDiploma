@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:AppSwiftUIMyDiplomaVersion101/AppSwiftUIMyDiplomaVersion101.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:CommandLineFinalVersion100/CommandLineFinalVersion100.xcodeproj">
    </FileRef>
    <FileRef
