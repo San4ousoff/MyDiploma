@@ -25,7 +25,7 @@ class TabBarController: UITabBarController {
         // TODO: Надо написать представление для списка категорий
         let categoryViewController = UIViewController()
         categoryViewController.tabBarItem = UITabBarItem(title: "Категории", image: UIImage(systemName: "square.grid.2x2"), tag: 2)
-
+               
         // Создаем UINavigationController для каждого представления
         let placeOfPaymentNavigationController = UINavigationController(rootViewController: placeOfPaymentCollectionVC)
         let cardNavigationController = UINavigationController(rootViewController: cardViewController)
@@ -33,7 +33,7 @@ class TabBarController: UITabBarController {
 
         // Устанавливаем UINavigationController для каждого представления
         setViewControllers([placeOfPaymentNavigationController, cardNavigationController, categoryNavigationController], animated: false)
-            
+        
         // MARK: - Изменение порядка вкладок и заглушка
         
         // Изменяем порядок вкладок на основе тега, чтобы Таб, запускающий placeOfPaymentCollectionVC, был в центре
@@ -57,6 +57,15 @@ class TabBarController: UITabBarController {
         } else if item.tag == 2 {
             PopupStub.showPopup(title: "Категории", message: "Здесь будет реализация View для Категорий", viewController: self)
         }
+    }
+    
+    // MARK: - Вызов анимации таб-бара
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Применение анимации выезжания из левой стороны к таб-бару
+        self.tabBar.slideInFromLeft(duration: 1)
     }
 }
 

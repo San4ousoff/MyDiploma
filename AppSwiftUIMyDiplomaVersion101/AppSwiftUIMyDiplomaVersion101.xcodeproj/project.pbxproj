@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0432EEEE2B57B92000C3274C /* UITabBar+PulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432EEED2B57B92000C3274C /* UITabBar+PulseAnimation.swift */; };
 		046E91C22B53227B00CC5128 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E91C12B53227B00CC5128 /* AppDelegate.swift */; };
 		046E91C42B53227B00CC5128 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E91C32B53227B00CC5128 /* SceneDelegate.swift */; };
 		046E91C62B53227B00CC5128 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E91C52B53227B00CC5128 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0432EEED2B57B92000C3274C /* UITabBar+PulseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+PulseAnimation.swift"; sourceTree = "<group>"; };
 		046E91BE2B53227B00CC5128 /* AppSwiftUIMyDiplomaVersion101.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppSwiftUIMyDiplomaVersion101.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		046E91C12B53227B00CC5128 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		046E91C32B53227B00CC5128 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0432EEEF2B57C0C700C3274C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0432EEED2B57B92000C3274C /* UITabBar+PulseAnimation.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		046E91B52B53227B00CC5128 = {
 			isa = PBXGroup;
 			children = (
@@ -66,11 +76,11 @@
 		046E91C02B53227B00CC5128 /* AppSwiftUIMyDiplomaVersion101 */ = {
 			isa = PBXGroup;
 			children = (
-				0476020F2B55B2E500CC5D11 /* Helpers */,
+				048F3D342B56A22E00115D09 /* Models */,
+				0476020F2B55B2E500CC5D11 /* Helper Files */,
 				0476020C2B55A33800CC5D11 /* Views */,
 				046E91C12B53227B00CC5128 /* AppDelegate.swift */,
 				046E91C32B53227B00CC5128 /* SceneDelegate.swift */,
-				046E91DB2B5328FA00CC5128 /* CategoryModel.swift */,
 				046E91CA2B53227E00CC5128 /* Assets.xcassets */,
 				046E91CC2B53227E00CC5128 /* LaunchScreen.storyboard */,
 				046E91CF2B53227E00CC5128 /* Info.plist */,
@@ -83,19 +93,36 @@
 			children = (
 				046E91C52B53227B00CC5128 /* ViewController.swift */,
 				046E91D52B53247800CC5128 /* TabBarController.swift */,
-				046E91DD2B53337800CC5128 /* PlaceOfPaymentCollectionViewController.swift */,
-				046E91D92B53265B00CC5128 /* CategoryCell.swift */,
+				048F3D352B56A98600115D09 /* PlaceOfPayment */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		0476020F2B55B2E500CC5D11 /* Helpers */ = {
+		0476020F2B55B2E500CC5D11 /* Helper Files */ = {
 			isa = PBXGroup;
 			children = (
+				0432EEEF2B57C0C700C3274C /* Extensions */,
 				0476020D2B55A45700CC5D11 /* PopupStub.swift */,
 				047602122B55B3DB00CC5D11 /* ConstraintsConstructor.swift */,
 			);
-			path = Helpers;
+			path = "Helper Files";
+			sourceTree = "<group>";
+		};
+		048F3D342B56A22E00115D09 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				046E91DB2B5328FA00CC5128 /* CategoryModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		048F3D352B56A98600115D09 /* PlaceOfPayment */ = {
+			isa = PBXGroup;
+			children = (
+				046E91D92B53265B00CC5128 /* CategoryCell.swift */,
+				046E91DD2B53337800CC5128 /* PlaceOfPaymentCollectionViewController.swift */,
+			);
+			path = PlaceOfPayment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0432EEEE2B57B92000C3274C /* UITabBar+PulseAnimation.swift in Sources */,
 				046E91DE2B53337800CC5128 /* PlaceOfPaymentCollectionViewController.swift in Sources */,
 				047602132B55B3DB00CC5D11 /* ConstraintsConstructor.swift in Sources */,
 				046E91C62B53227B00CC5128 /* ViewController.swift in Sources */,
