@@ -9,9 +9,10 @@ import UIKit
 
 class PlaceOfPaymentCollectionViewController: UICollectionViewController {
 
-    // MARK: - Properties
+    // MARK: - Данные
     
     // Массив категорий товаров
+    // TODO: Заменить этот массив на данные, из модели, которую заполняет пользователь
     private let categories: [CategoryModel] = [
         CategoryModel(name: "Еда", icon: "🍔"),
         CategoryModel(name: "Путешествия", icon: "✈️"),
@@ -25,7 +26,7 @@ class PlaceOfPaymentCollectionViewController: UICollectionViewController {
         CategoryModel(name: "Техника", icon: "📱")
     ]
     
-    // MARK: - Lifecycle
+    // MARK: - Жизненный цикл
     
     /// Инициализация контроллера
     ///
@@ -72,9 +73,8 @@ class PlaceOfPaymentCollectionViewController: UICollectionViewController {
         return cell
     }
 
-    // MARK: - Actions
-    
-    /// Обработка нажатия на кнопку категории
+    // MARK: - Обработка нажатия на кнопку категории
+
     @objc func categoryButtonTapped(_ sender: UIButton) {
         guard let cell = sender.superview?.superview as? CategoryCell else { return }  // Находим соответствующую ячейку
         guard let indexPath = collectionView.indexPath(for: cell) else { return }

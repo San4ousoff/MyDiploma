@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		0432EEEE2B57B92000C3274C /* UITabBar+PulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432EEED2B57B92000C3274C /* UITabBar+PulseAnimation.swift */; };
+		0432EEF32B57CEF900C3274C /* CardProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432EEF22B57CEF900C3274C /* CardProtocol.swift */; };
+		0432EEF62B57D00500C3274C /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432EEF52B57D00500C3274C /* CardModel.swift */; };
+		0432EEF92B57D26D00C3274C /* CardManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432EEF82B57D26D00C3274C /* CardManagerProtocol.swift */; };
+		0432EEFD2B57D2CD00C3274C /* CardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432EEFC2B57D2CD00C3274C /* CardManager.swift */; };
+		0432EF002B57D36F00C3274C /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432EEFF2B57D36F00C3274C /* CardListViewController.swift */; };
+		0432EF022B57D48A00C3274C /* EditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432EF012B57D48A00C3274C /* EditCardViewController.swift */; };
+		0432EF0A2B57E78A00C3274C /* AppDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0432EF082B57E78900C3274C /* AppDataModel.xcdatamodeld */; };
+		0432EF122B57F99100C3274C /* CardDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432EF112B57F99100C3274C /* CardDataProvider.swift */; };
+		0432EF152B57FBEF00C3274C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432EF142B57FBEF00C3274C /* CoreDataStack.swift */; };
+		0432EF182B58185100C3274C /* CardEntityDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432EF172B58185100C3274C /* CardEntityDataTest.swift */; };
+		0453C90E2B595E4A00333F7A /* AddButtonOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0453C90D2B595E4900333F7A /* AddButtonOverlay.swift */; };
 		046E91C22B53227B00CC5128 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E91C12B53227B00CC5128 /* AppDelegate.swift */; };
 		046E91C42B53227B00CC5128 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E91C32B53227B00CC5128 /* SceneDelegate.swift */; };
 		046E91C62B53227B00CC5128 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E91C52B53227B00CC5128 /* ViewController.swift */; };
@@ -23,6 +34,17 @@
 
 /* Begin PBXFileReference section */
 		0432EEED2B57B92000C3274C /* UITabBar+PulseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+PulseAnimation.swift"; sourceTree = "<group>"; };
+		0432EEF22B57CEF900C3274C /* CardProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardProtocol.swift; sourceTree = "<group>"; };
+		0432EEF52B57D00500C3274C /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		0432EEF82B57D26D00C3274C /* CardManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardManagerProtocol.swift; sourceTree = "<group>"; };
+		0432EEFC2B57D2CD00C3274C /* CardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardManager.swift; sourceTree = "<group>"; };
+		0432EEFF2B57D36F00C3274C /* CardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
+		0432EF012B57D48A00C3274C /* EditCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardViewController.swift; sourceTree = "<group>"; };
+		0432EF092B57E78A00C3274C /* AppDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppDataModel.xcdatamodel; sourceTree = "<group>"; };
+		0432EF112B57F99100C3274C /* CardDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataProvider.swift; sourceTree = "<group>"; };
+		0432EF142B57FBEF00C3274C /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		0432EF172B58185100C3274C /* CardEntityDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEntityDataTest.swift; sourceTree = "<group>"; };
+		0453C90D2B595E4900333F7A /* AddButtonOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonOverlay.swift; sourceTree = "<group>"; };
 		046E91BE2B53227B00CC5128 /* AppSwiftUIMyDiplomaVersion101.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppSwiftUIMyDiplomaVersion101.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		046E91C12B53227B00CC5128 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		046E91C32B53227B00CC5128 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +79,75 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		0432EEF02B57CDC800C3274C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0432EF102B57F95300C3274C /* DataProviders */,
+				0432EEF72B57D25100C3274C /* Cards */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		0432EEF12B57CEB300C3274C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		0432EEF42B57CFD800C3274C /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				0432EEF22B57CEF900C3274C /* CardProtocol.swift */,
+				0432EEF52B57D00500C3274C /* CardModel.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		0432EEF72B57D25100C3274C /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				0432EEF82B57D26D00C3274C /* CardManagerProtocol.swift */,
+				0432EEFC2B57D2CD00C3274C /* CardManager.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		0432EEFE2B57D31300C3274C /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				0432EEFF2B57D36F00C3274C /* CardListViewController.swift */,
+				0432EF012B57D48A00C3274C /* EditCardViewController.swift */,
+				0453C90D2B595E4900333F7A /* AddButtonOverlay.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		0432EF102B57F95300C3274C /* DataProviders */ = {
+			isa = PBXGroup;
+			children = (
+				0432EF112B57F99100C3274C /* CardDataProvider.swift */,
+			);
+			path = DataProviders;
+			sourceTree = "<group>";
+		};
+		0432EF132B57FAB200C3274C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0432EF082B57E78900C3274C /* AppDataModel.xcdatamodeld */,
+				0432EF142B57FBEF00C3274C /* CoreDataStack.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		0432EF162B58182600C3274C /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				0432EF172B58185100C3274C /* CardEntityDataTest.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		046E91B52B53227B00CC5128 = {
 			isa = PBXGroup;
 			children = (
@@ -76,9 +167,13 @@
 		046E91C02B53227B00CC5128 /* AppSwiftUIMyDiplomaVersion101 */ = {
 			isa = PBXGroup;
 			children = (
+				0432EF162B58182600C3274C /* Tests */,
+				0432EF132B57FAB200C3274C /* CoreData */,
+				0432EEF12B57CEB300C3274C /* Protocols */,
 				048F3D342B56A22E00115D09 /* Models */,
-				0476020F2B55B2E500CC5D11 /* Helper Files */,
+				0432EEF02B57CDC800C3274C /* Managers */,
 				0476020C2B55A33800CC5D11 /* Views */,
+				0476020F2B55B2E500CC5D11 /* Helper Files */,
 				046E91C12B53227B00CC5128 /* AppDelegate.swift */,
 				046E91C32B53227B00CC5128 /* SceneDelegate.swift */,
 				046E91CA2B53227E00CC5128 /* Assets.xcassets */,
@@ -94,6 +189,7 @@
 				046E91C52B53227B00CC5128 /* ViewController.swift */,
 				046E91D52B53247800CC5128 /* TabBarController.swift */,
 				048F3D352B56A98600115D09 /* PlaceOfPayment */,
+				0432EEFE2B57D31300C3274C /* Cards */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -111,6 +207,7 @@
 		048F3D342B56A22E00115D09 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0432EEF42B57CFD800C3274C /* Cards */,
 				046E91DB2B5328FA00CC5128 /* CategoryModel.swift */,
 			);
 			path = Models;
@@ -119,8 +216,8 @@
 		048F3D352B56A98600115D09 /* PlaceOfPayment */ = {
 			isa = PBXGroup;
 			children = (
-				046E91D92B53265B00CC5128 /* CategoryCell.swift */,
 				046E91DD2B53337800CC5128 /* PlaceOfPaymentCollectionViewController.swift */,
+				046E91D92B53265B00CC5128 /* CategoryCell.swift */,
 			);
 			path = PlaceOfPayment;
 			sourceTree = "<group>";
@@ -141,6 +238,8 @@
 			dependencies = (
 			);
 			name = AppSwiftUIMyDiplomaVersion101;
+			packageProductDependencies = (
+			);
 			productName = AppSwiftUIMyDiplomaVersion101;
 			productReference = 046E91BE2B53227B00CC5128 /* AppSwiftUIMyDiplomaVersion101.app */;
 			productType = "com.apple.product-type.application";
@@ -169,6 +268,8 @@
 				Base,
 			);
 			mainGroup = 046E91B52B53227B00CC5128;
+			packageReferences = (
+			);
 			productRefGroup = 046E91BF2B53227B00CC5128 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -195,13 +296,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0432EF0A2B57E78A00C3274C /* AppDataModel.xcdatamodeld in Sources */,
 				0432EEEE2B57B92000C3274C /* UITabBar+PulseAnimation.swift in Sources */,
 				046E91DE2B53337800CC5128 /* PlaceOfPaymentCollectionViewController.swift in Sources */,
+				0453C90E2B595E4A00333F7A /* AddButtonOverlay.swift in Sources */,
+				0432EEF92B57D26D00C3274C /* CardManagerProtocol.swift in Sources */,
+				0432EEFD2B57D2CD00C3274C /* CardManager.swift in Sources */,
 				047602132B55B3DB00CC5D11 /* ConstraintsConstructor.swift in Sources */,
 				046E91C62B53227B00CC5128 /* ViewController.swift in Sources */,
+				0432EF022B57D48A00C3274C /* EditCardViewController.swift in Sources */,
+				0432EF152B57FBEF00C3274C /* CoreDataStack.swift in Sources */,
+				0432EEF32B57CEF900C3274C /* CardProtocol.swift in Sources */,
+				0432EEF62B57D00500C3274C /* CardModel.swift in Sources */,
 				046E91D62B53247800CC5128 /* TabBarController.swift in Sources */,
+				0432EF002B57D36F00C3274C /* CardListViewController.swift in Sources */,
+				0432EF122B57F99100C3274C /* CardDataProvider.swift in Sources */,
 				046E91C22B53227B00CC5128 /* AppDelegate.swift in Sources */,
 				0476020E2B55A45700CC5D11 /* PopupStub.swift in Sources */,
+				0432EF182B58185100C3274C /* CardEntityDataTest.swift in Sources */,
 				046E91DC2B5328FA00CC5128 /* CategoryModel.swift in Sources */,
 				046E91C42B53227B00CC5128 /* SceneDelegate.swift in Sources */,
 				046E91DA2B53265B00CC5128 /* CategoryCell.swift in Sources */,
@@ -412,6 +524,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0432EF082B57E78900C3274C /* AppDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0432EF092B57E78A00C3274C /* AppDataModel.xcdatamodel */,
+			);
+			currentVersion = 0432EF092B57E78A00C3274C /* AppDataModel.xcdatamodel */;
+			path = AppDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 046E91B62B53227B00CC5128 /* Project object */;
 }

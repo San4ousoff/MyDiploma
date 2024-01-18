@@ -17,10 +17,10 @@ class TabBarController: UITabBarController {
         // Инициализируем представление для отображения Мест оплаты
         let placeOfPaymentCollectionVC = PlaceOfPaymentCollectionViewController()
         placeOfPaymentCollectionVC.tabBarItem = UITabBarItem(title: "Место оплаты", image: UIImage(systemName: "heart"), tag: 0)
-        
-        // TODO: Надо написать представление для списка карт
-        let cardViewController = UIViewController()
-        cardViewController.tabBarItem = UITabBarItem(title: "Карты", image: UIImage(systemName: "creditcard"), tag: 1)
+
+        // Инициализируем представление для отображения Списка карт
+        let cardListViewController = CardListViewController()
+        cardListViewController.tabBarItem = UITabBarItem(title: "Карты", image: UIImage(systemName: "creditcard"), tag: 1)
 
         // TODO: Надо написать представление для списка категорий
         let categoryViewController = UIViewController()
@@ -28,7 +28,7 @@ class TabBarController: UITabBarController {
                
         // Создаем UINavigationController для каждого представления
         let placeOfPaymentNavigationController = UINavigationController(rootViewController: placeOfPaymentCollectionVC)
-        let cardNavigationController = UINavigationController(rootViewController: cardViewController)
+        let cardNavigationController = UINavigationController(rootViewController: cardListViewController)
         let categoryNavigationController = UINavigationController(rootViewController: categoryViewController)
 
         // Устанавливаем UINavigationController для каждого представления
@@ -52,9 +52,7 @@ class TabBarController: UITabBarController {
     // MARK: - Обработка выбора вкладок в таб-баре
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        if item.tag == 1 {
-            PopupStub.showPopup(title: "Карты", message: "Здесь будет реализация View для Карт", viewController: self)
-        } else if item.tag == 2 {
+        if item.tag == 2 {
             PopupStub.showPopup(title: "Категории", message: "Здесь будет реализация View для Категорий", viewController: self)
         }
     }
@@ -68,6 +66,7 @@ class TabBarController: UITabBarController {
         self.tabBar.slideInFromLeft(duration: 1)
     }
 }
+
 
 
 
