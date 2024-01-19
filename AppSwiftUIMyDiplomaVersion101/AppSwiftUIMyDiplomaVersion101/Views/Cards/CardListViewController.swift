@@ -11,7 +11,7 @@ class CardListViewController: UITableViewController {
     var cardManager: CardManagerProtocol
     var cards: [CardEntity] = []
     
-    let addButtonOverlay = AddButtonOverlay()
+    let customRoundButton = RoundButtonWithSettings(title: "+", backgroundColor: .systemBlue, titleColor: .white)
 
     init() {
         let context = CoreDataStack.shared.context
@@ -28,13 +28,11 @@ class CardListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Добавление кнопки в качестве subview и настройка ограничений
-        view.addSubview(addButtonOverlay)
-        addButtonOverlay.addButtonAction = {
-                    // Обработка нажатия на кнопку
-                    print("Button tapped!")
-                }
-        
+        // Добавление кнопки в качестве subview
+        view.addSubview(customRoundButton)
+        // Вызов констрейнтов для настройки расположения кнопки
+        ConstraintsConstructor.setupRoundButtonConstraints(button: customRoundButton, contentView: view, distanceFromBottomMultiplier: 0.1)
+
         // Здесь регистрируется ячейка для UITableView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CardCell")
         
@@ -53,6 +51,7 @@ class CardListViewController: UITableViewController {
             self?.tableView.reloadData()
         }
     }
+    
     
     // MARK: - Table view data source
 

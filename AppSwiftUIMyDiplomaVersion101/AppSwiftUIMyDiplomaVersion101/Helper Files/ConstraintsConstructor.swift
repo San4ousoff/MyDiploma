@@ -33,4 +33,28 @@ class ConstraintsConstructor {
             label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
         ])
     }
+    
+    /**
+     Настройка констрейнтов для кнопки, размещаемой с учетом отступа от нижнего края представления.
+
+     - Parameters:
+        - button: Кнопка, для которой настраиваются констрейнты.
+        - contentView: Представление, к которому добавляется кнопка.
+        - distanceFromBottomMultiplier: Множитель, определяющий отступ кнопки от нижнего края представления. Значение 0.0 означает размещение у самого нижнего края, 1.0 - размещение у верхнего края представления.
+     */
+    static func setupRoundButtonConstraints(button: RoundButtonWithSettings, contentView: UIView, distanceFromBottomMultiplier: CGFloat) {
+        // Отключаем автоматическую генерацию констрейнтов для кнопки
+        button.translatesAutoresizingMaskIntoConstraints = false
+
+        // Получаем Safe Area Layout Guide для учета безопасной области на различных устройствах и ориентациях
+        let safeGuide = contentView.safeAreaLayoutGuide
+
+        // Активация констрейнтов с использованием Safe Area для правильного позиционирования кнопки
+        NSLayoutConstraint.activate([
+            button.centerXAnchor.constraint(equalTo: contentView.centerXAnchor), // Центрирование кнопки по горизонтали
+            button.bottomAnchor.constraint(equalTo: safeGuide.bottomAnchor, constant: -safeGuide.layoutFrame.size.height * distanceFromBottomMultiplier) // Задание отступа от нижнего края с учетом Safe Area
+        ])
+    }
+
+
 }

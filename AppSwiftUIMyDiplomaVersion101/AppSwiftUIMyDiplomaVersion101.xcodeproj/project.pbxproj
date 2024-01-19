@@ -18,6 +18,7 @@
 		0432EF122B57F99100C3274C /* CardDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432EF112B57F99100C3274C /* CardDataProvider.swift */; };
 		0432EF152B57FBEF00C3274C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432EF142B57FBEF00C3274C /* CoreDataStack.swift */; };
 		0432EF182B58185100C3274C /* CardEntityDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432EF172B58185100C3274C /* CardEntityDataTest.swift */; };
+		044FDF302B5A5E1B0098F588 /* RoundButtonWithSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044FDF2F2B5A5E1B0098F588 /* RoundButtonWithSettings.swift */; };
 		0453C90E2B595E4A00333F7A /* AddButtonOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0453C90D2B595E4900333F7A /* AddButtonOverlay.swift */; };
 		046E91C22B53227B00CC5128 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E91C12B53227B00CC5128 /* AppDelegate.swift */; };
 		046E91C42B53227B00CC5128 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E91C32B53227B00CC5128 /* SceneDelegate.swift */; };
@@ -44,6 +45,7 @@
 		0432EF112B57F99100C3274C /* CardDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataProvider.swift; sourceTree = "<group>"; };
 		0432EF142B57FBEF00C3274C /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		0432EF172B58185100C3274C /* CardEntityDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEntityDataTest.swift; sourceTree = "<group>"; };
+		044FDF2F2B5A5E1B0098F588 /* RoundButtonWithSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButtonWithSettings.swift; sourceTree = "<group>"; };
 		0453C90D2B595E4900333F7A /* AddButtonOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonOverlay.swift; sourceTree = "<group>"; };
 		046E91BE2B53227B00CC5128 /* AppSwiftUIMyDiplomaVersion101.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppSwiftUIMyDiplomaVersion101.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		046E91C12B53227B00CC5128 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +150,14 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
+		044FDF2E2B5A5C830098F588 /* Helper Files */ = {
+			isa = PBXGroup;
+			children = (
+				044FDF2F2B5A5E1B0098F588 /* RoundButtonWithSettings.swift */,
+			);
+			path = "Helper Files";
+			sourceTree = "<group>";
+		};
 		046E91B52B53227B00CC5128 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +196,7 @@
 		0476020C2B55A33800CC5D11 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				044FDF2E2B5A5C830098F588 /* Helper Files */,
 				046E91C52B53227B00CC5128 /* ViewController.swift */,
 				046E91D52B53247800CC5128 /* TabBarController.swift */,
 				048F3D352B56A98600115D09 /* PlaceOfPayment */,
@@ -297,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0432EF0A2B57E78A00C3274C /* AppDataModel.xcdatamodeld in Sources */,
+				044FDF302B5A5E1B0098F588 /* RoundButtonWithSettings.swift in Sources */,
 				0432EEEE2B57B92000C3274C /* UITabBar+PulseAnimation.swift in Sources */,
 				046E91DE2B53337800CC5128 /* PlaceOfPaymentCollectionViewController.swift in Sources */,
 				0453C90E2B595E4A00333F7A /* AddButtonOverlay.swift in Sources */,
