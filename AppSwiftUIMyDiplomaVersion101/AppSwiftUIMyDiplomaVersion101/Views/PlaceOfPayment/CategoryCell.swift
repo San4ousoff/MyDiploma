@@ -43,22 +43,27 @@ class CategoryCell: UICollectionViewCell {
     ///   - icon: Иконка для отображения на кнопке
     ///   - name: Текст для отображения под кнопкой
     func configure(withIcon icon: String, name: String) {
-        button.setTitle(icon, for: .normal) // Установка изображения для кнопки
-        button.titleLabel?.numberOfLines = 2 // Многострочный текст
-        button.titleLabel?.textAlignment = .center // Выравнивание текста
-        button.titleLabel?.adjustsFontSizeToFitWidth = true // Масштабирует текст для подгонки по ширине
-        button.titleLabel?.minimumScaleFactor = 0.5 // Минимальный масштаб текста
-        button.setTitleColor(.black, for: .normal) // Цвет текста
+        let iconFontSizePercentage: CGFloat = 0.5 // Процентная доля от ширины кнопки
+        let labelFontSizePercentage: CGFloat = 0.05 // Процентная доля от ширины кнопки
         
-        let label = UILabel() // Инициализация метки
-        label.text = name // Установка текста метки
-        label.numberOfLines = 2 // Многострочный текст
-        label.textAlignment = .center // Выравнивание текста
-        label.font = UIFont.systemFont(ofSize: 12) // Установка шрифта метки
+        button.setTitle(icon, for: .normal)
+        button.titleLabel?.numberOfLines = 2
+        button.titleLabel?.textAlignment = .center
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.minimumScaleFactor = 0.5
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = button.titleLabel?.font.withSize(button.bounds.width * iconFontSizePercentage)
+        
+        let label = UILabel()
+        label.text = name
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        label.font = label.font.withSize(button.bounds.width * labelFontSizePercentage)
         label.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(label) // Добавление метки на представление ячейки
+        contentView.addSubview(label)
         
-        ConstraintsConstructor.setupButtonCellConstraints(button: button, contentView: contentView) // Установка констрейнтов для кнопки
-        ConstraintsConstructor.setupLabelCellConstraints(label: label, button: button, contentView: contentView) // Установка констрейнтов для метки
+        ConstraintsConstructor.setupButtonCellConstraints(button: button, contentView: contentView)
+        ConstraintsConstructor.setupLabelCellConstraints(label: label, button: button, contentView: contentView)
     }
+
 }

@@ -29,15 +29,13 @@ class CardListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Список карт"
-        
+
         // Добавляем обработчик нажатия для кнопки customRoundButton
         setupCustomButton()
-
         // Регистрируем ячейку для UITableView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CardCell")
-        
         // Получаем данные из CardManager через протокол
-        fetchCards()
+        updateCardData()
         
         // TODO: удаление всех карт для тестирования добавления карты на пустом списке
         // cardManager.deleteAllCards()
@@ -49,6 +47,7 @@ class CardListViewController: UITableViewController {
             self?.cards = fetchedCards
             DispatchQueue.main.async {
                 self?.updateTableView()
+                // print("Успешно получено (CardListViewController) \(self?.cards.count ?? 0) из БД")
             }
         }
     }
@@ -58,15 +57,6 @@ class CardListViewController: UITableViewController {
         self.tableView.reloadData()
     }
 
-    // Получение списка карт
-    private func fetchCards() {
-        cardManager.getCards { [weak self] fetchedCards in
-            self?.cards = fetchedCards
-            DispatchQueue.main.async {
-                self?.updateTableView()
-            }
-        }
-    }
     
     // MARK: - Table view data source
 
@@ -83,6 +73,7 @@ class CardListViewController: UITableViewController {
         let card = cards[indexPath.row]
 
         // Настройка ячейки с данными из CardEntity
+        //cell.textLabel?.text = card.id?.uuidString
         cell.textLabel?.text = card.name
         
         if let cardImage = card.image {
@@ -101,7 +92,7 @@ class CardListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCard = cards[indexPath.row]
-        let message = "Выбрана карта: \(selectedCard.name ?? "Unknown")"
+        let message = "Выбрана карта: \(selectedCard.name ?? "*** без имени ***")"
         PopupStub.showPopup(title: "Информация о карте", message: message, viewController: self)
     }
 }

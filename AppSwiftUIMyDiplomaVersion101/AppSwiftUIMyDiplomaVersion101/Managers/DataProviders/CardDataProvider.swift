@@ -24,6 +24,12 @@ class CardDataProvider {
         let fetchRequest: NSFetchRequest<CardEntity> = CardEntity.fetchRequest()
         do {
             cards = try CoreDataStack.shared.context.fetch(fetchRequest)
+            print("Успешно получено (CardDataProvider.getCards) \(cards.count) из БД")
+//      ID с UUID работает - присваивается значение
+//            for card in cards {
+//                print("Card ID: \(String(describing: card.id))")
+//            }
+
             completion(cards)
         } catch {
             print("Ошибка передачи списка карт (getCards): \(error)")
@@ -31,12 +37,23 @@ class CardDataProvider {
         }
     }
     
-    func addCard(_ id: Int, _ name: String, _ imageData: Data, completion: @escaping () -> Void) {
+    func addCard(_ name: String, _ imageData: Data, completion: @escaping () -> Void) {
         // print("Попытка вызова метода...") // Отладочный вывод для отслеживания вызова метода
-        let newCard = CardEntity(context: self.context)
-        newCard.id = Int16(id)
-        newCard.name = name
-        newCard.image = imageData
+        let newCard = CardEntity(context: context)
+        newCard.id = UUID()
+        
+        if !name.isEmpty {
+               newCard.name = name
+           } else {
+               print("Внимание: Пустое имя для карточки")
+           }
+
+        if !imageData.isEmpty {
+               newCard.image = imageData
+           } else {
+               print("Внимание: Отсутствует картинка")
+           }
+
 
         do {
             try context.save()
@@ -51,18 +68,19 @@ class CardDataProvider {
             print("Ошибка добавления карты (addCard): \(error)") // Отладочный вывод для отслеживания ошибок
         }
     }
+}
     
     // TODO: для тестирования - удаление всех карт в БД
-    func deleteAllCards() {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CardEntity")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+//    func deleteAllCards() {
+//        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CardEntity")
+//        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+//
+//        do {
+//            try CoreDataStack.shared.context.execute(deleteRequest)
+//            try CoreDataStack.shared.context.save()
+//        } catch {
+//            print("Ошибка удаления всех карт (deleteAllCards):: \(error)")
+//        }
+//    }
 
-        do {
-            try CoreDataStack.shared.context.execute(deleteRequest)
-            try CoreDataStack.shared.context.save()
-        } catch {
-            print("Ошибка удаления всех карт (deleteAllCards):: \(error)")
-        }
-    }
-}
 

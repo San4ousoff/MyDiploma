@@ -28,12 +28,12 @@ class CardManager: CardManagerProtocol {
 
     // Реализация метода добавления карты с конкретными данными (без View)
     // Метод добавления карты с поддержкой обратного вызова
-    func addCard(_ id: Int, _ name: String, _ imageData: Data, completion: @escaping () -> Void) {
-        cardDataProvider.addCard(id, name, imageData) {
-            // После успешного добавления вызываем обратный вызов
-            completion()
+    func addCard(_ name: String, _ imageData: Data, completion: @escaping () -> Void) {
+            cardDataProvider.addCard(name, imageData) {
+                // После успешного добавления вызываем обратный вызов
+                completion()
+            }
         }
-    }
 
     func editCard(_ card: CardEntity) {
         // ваша текущая реализация редактирования карт
@@ -42,15 +42,15 @@ class CardManager: CardManagerProtocol {
     func deleteCard(_ card: CardEntity) {
         // ваша текущая реализация удаления карт
     }
-    
+}
     // MARK: тестовые методы
     
     // Удаление всех карт из БД
-    func deleteAllCards() {
-        cardDataProvider.deleteAllCards()
-    }
+//    func deleteAllCards() {
+//        cardDataProvider.deleteAllCards()
+//    }
 
   
-}
+
 
 

@@ -18,12 +18,21 @@ extension CardListViewController {
         customRoundButton.addTarget(self, action: #selector(customButtonTapped), for: .touchUpInside)
     }
     
-//     Обработка нажатия на кнопку
+    // Обработка нажатия на кнопку
+//    @objc func customButtonTapped() {
+//        // Создание экземпляра AddCardViewController
+//        let addCardVC = AddCardViewController(cardManager: cardManager)
+//
+//        // Отображение AddCardViewController
+//        present(addCardVC, animated: true, completion: nil)
+//    }
+
+
     @objc func customButtonTapped() {
-        let cardID = 1
-        let cardName = "Скроллинговая карта"
+        // TODO: здесь нам предстоит вызвать вью, который добавляет данные по карте после взаимодействия с пользователем
+        let cardName = "Новая карта"
         if let imageData = UIImage(named: "GB")?.pngData() {
-            cardManager.addCard(cardID, cardName, imageData) { [weak self] in
+            cardManager.addCard(cardName, imageData) { [weak self] in
                 DispatchQueue.main.async {
                     self?.updateCardData()
                     self?.scrollToBottomIfNeeded()

@@ -10,9 +10,9 @@ import Foundation
 
 protocol CardManagerProtocol {
     func getCards(completion: @escaping ([CardEntity]) -> Void)
-    func addCard(_ id: Int, _ name: String, _ imageData: Data, completion: @escaping () -> Void)
+    func addCard(_ name: String, _ imageData: Data, completion: @escaping () -> Void)
     func editCard(_ card: CardEntity)
     func deleteCard(_ card: CardEntity)
-    func deleteAllCards()
+    //func deleteAllCards()
 }
 

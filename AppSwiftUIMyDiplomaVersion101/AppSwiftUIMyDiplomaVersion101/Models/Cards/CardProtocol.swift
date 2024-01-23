@@ -9,8 +9,8 @@ import UIKit
 
 // Протокол для описания свойств карты
 protocol CardProtocol {
-    var id: Int { get set }
-    var name: String { get set }
-    var image: UIImage { get set }
+    var id: UUID? { get }
+    var name: String? { get set }
+    var image: UIImage? { get set }
 }
 
