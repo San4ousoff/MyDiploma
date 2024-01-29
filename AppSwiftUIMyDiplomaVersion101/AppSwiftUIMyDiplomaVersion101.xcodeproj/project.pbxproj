@@ -18,6 +18,7 @@
 		044FDF302B5A5E1B0098F588 /* RoundButtonWithSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044FDF2F2B5A5E1B0098F588 /* RoundButtonWithSettings.swift */; };
 		044FDF332B5AB55B0098F588 /* CardListViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044FDF322B5AB55B0098F588 /* CardListViewController+Actions.swift */; };
 		044FDF352B5AB57A0098F588 /* CardListViewController+Scrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044FDF342B5AB57A0098F588 /* CardListViewController+Scrolling.swift */; };
+		0468231E2B657D54009416BD /* BaseItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468231D2B657D54009416BD /* BaseItemViewController.swift */; };
 		046E91C22B53227B00CC5128 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E91C12B53227B00CC5128 /* AppDelegate.swift */; };
 		046E91C42B53227B00CC5128 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E91C32B53227B00CC5128 /* SceneDelegate.swift */; };
 		046E91C62B53227B00CC5128 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046E91C52B53227B00CC5128 /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 		0476020E2B55A45700CC5D11 /* PopupStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0476020D2B55A45700CC5D11 /* PopupStub.swift */; };
 		047602132B55B3DB00CC5D11 /* ConstraintsConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047602122B55B3DB00CC5D11 /* ConstraintsConstructor.swift */; };
 		0487C75C2B5FFD6800E6482D /* AppDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0487C75A2B5FFD6800E6482D /* AppDataModel.xcdatamodeld */; };
+		048CC56C2B610DE2008DDD5B /* DisplayCardEntityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048CC56B2B610DE2008DDD5B /* DisplayCardEntityData.swift */; };
 		04C76F332B5E969E007D96C9 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C76F322B5E969E007D96C9 /* AddCardViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,7 @@
 		044FDF2F2B5A5E1B0098F588 /* RoundButtonWithSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButtonWithSettings.swift; sourceTree = "<group>"; };
 		044FDF322B5AB55B0098F588 /* CardListViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardListViewController+Actions.swift"; sourceTree = "<group>"; };
 		044FDF342B5AB57A0098F588 /* CardListViewController+Scrolling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardListViewController+Scrolling.swift"; sourceTree = "<group>"; };
+		0468231D2B657D54009416BD /* BaseItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseItemViewController.swift; sourceTree = "<group>"; };
 		046E91BE2B53227B00CC5128 /* AppSwiftUIMyDiplomaVersion101.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppSwiftUIMyDiplomaVersion101.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		046E91C12B53227B00CC5128 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		046E91C32B53227B00CC5128 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +62,7 @@
 		0476020D2B55A45700CC5D11 /* PopupStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupStub.swift; sourceTree = "<group>"; };
 		047602122B55B3DB00CC5D11 /* ConstraintsConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsConstructor.swift; sourceTree = "<group>"; };
 		0487C75B2B5FFD6800E6482D /* AppDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppDataModel.xcdatamodel; sourceTree = "<group>"; };
+		048CC56B2B610DE2008DDD5B /* DisplayCardEntityData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCardEntityData.swift; sourceTree = "<group>"; };
 		04C76F322B5E969E007D96C9 /* AddCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,7 +117,6 @@
 			children = (
 				044FDF312B5AB50B0098F588 /* Extensions */,
 				0432EEFF2B57D36F00C3274C /* CardListViewController.swift */,
-				04C76F322B5E969E007D96C9 /* AddCardViewController.swift */,
 			);
 			path = CardsList;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 		0432EF162B58182600C3274C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				048CC56B2B610DE2008DDD5B /* DisplayCardEntityData.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -157,6 +161,23 @@
 				044FDF342B5AB57A0098F588 /* CardListViewController+Scrolling.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0468231C2B657CD6009416BD /* ItemsWindows */ = {
+			isa = PBXGroup;
+			children = (
+				0468231D2B657D54009416BD /* BaseItemViewController.swift */,
+				0468231F2B657D7C009416BD /* Cards */,
+			);
+			path = ItemsWindows;
+			sourceTree = "<group>";
+		};
+		0468231F2B657D7C009416BD /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				04C76F322B5E969E007D96C9 /* AddCardViewController.swift */,
+			);
+			path = Cards;
 			sourceTree = "<group>";
 		};
 		046C56762B5AF92F00AE4663 /* TabBar */ = {
@@ -207,6 +228,7 @@
 			children = (
 				046E91C52B53227B00CC5128 /* ViewController.swift */,
 				046C56762B5AF92F00AE4663 /* TabBar */,
+				0468231C2B657CD6009416BD /* ItemsWindows */,
 				048F3D352B56A98600115D09 /* PlaceOfPayment */,
 				0432EEFE2B57D31300C3274C /* CardsList */,
 				044FDF2E2B5A5C830098F588 /* Helper Files */,
@@ -315,12 +337,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0468231E2B657D54009416BD /* BaseItemViewController.swift in Sources */,
 				044FDF302B5A5E1B0098F588 /* RoundButtonWithSettings.swift in Sources */,
 				0432EEEE2B57B92000C3274C /* UITabBar+PulseAnimation.swift in Sources */,
 				044FDF352B5AB57A0098F588 /* CardListViewController+Scrolling.swift in Sources */,
 				046E91DE2B53337800CC5128 /* PlaceOfPaymentCollectionViewController.swift in Sources */,
 				0432EEF92B57D26D00C3274C /* CardManagerProtocol.swift in Sources */,
 				0432EEFD2B57D2CD00C3274C /* CardManager.swift in Sources */,
+				048CC56C2B610DE2008DDD5B /* DisplayCardEntityData.swift in Sources */,
 				047602132B55B3DB00CC5D11 /* ConstraintsConstructor.swift in Sources */,
 				04C76F332B5E969E007D96C9 /* AddCardViewController.swift in Sources */,
 				046E91C62B53227B00CC5128 /* ViewController.swift in Sources */,

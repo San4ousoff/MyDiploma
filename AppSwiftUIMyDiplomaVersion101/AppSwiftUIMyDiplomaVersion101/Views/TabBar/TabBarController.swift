@@ -48,7 +48,7 @@ class TabBarController: UITabBarController {
             setViewControllers(viewControllers, animated: false)
         }
     }
-
+    
     // MARK: - Обработка выбора вкладок в таб-баре
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {

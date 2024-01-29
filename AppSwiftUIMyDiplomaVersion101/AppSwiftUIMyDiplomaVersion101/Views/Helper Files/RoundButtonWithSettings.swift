@@ -16,7 +16,7 @@ class RoundButtonWithSettings: UIButton {
         self.backgroundColor = backgroundColor
         setTitleColor(titleColor, for: .normal)
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.widthAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        //self.widthAnchor.constraint(equalTo: self.heightAnchor).isActive = true
     }
 
     required init?(coder: NSCoder) {

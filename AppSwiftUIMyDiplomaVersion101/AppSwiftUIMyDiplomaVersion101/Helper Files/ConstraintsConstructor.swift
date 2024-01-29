@@ -42,19 +42,20 @@ class ConstraintsConstructor {
         - contentView: Представление, к которому добавляется кнопка.
         - distanceFromBottomMultiplier: Множитель, определяющий отступ кнопки от нижнего края представления. Значение 0.0 означает размещение у самого нижнего края, 1.0 - размещение у верхнего края представления.
      */
-    static func setupRoundButtonConstraints(button: RoundButtonWithSettings, contentView: UIView, distanceFromBottomMultiplier: CGFloat) {
-        // Отключаем автоматическую генерацию констрейнтов для кнопки
-        button.translatesAutoresizingMaskIntoConstraints = false
-
-        // Получаем Safe Area Layout Guide для учета безопасной области на различных устройствах и ориентациях
-        let safeGuide = contentView.safeAreaLayoutGuide
-
-        // Активация констрейнтов с использованием Safe Area для правильного позиционирования кнопки
+    
+    static func setupViewConstraints(view: UIView, contentView: UIView, distanceFromYMultiplier: CGFloat, distanceFromXMultiplier: CGFloat) {
+        view.translatesAutoresizingMaskIntoConstraints = false // Отключаем автоматическую генерацию констрейнтов для вида
+        //let safeGuide = contentView.safeAreaLayoutGuide // Получаем Safe Area Layout Guide
+        let centerY = contentView.centerYAnchor // Центрирование по вертикали
+        let centerX = contentView.centerXAnchor // Центрирование по горизонтали
+        
         NSLayoutConstraint.activate([
-            button.centerXAnchor.constraint(equalTo: contentView.centerXAnchor), // Центрирование кнопки по горизонтали
-            button.bottomAnchor.constraint(equalTo: safeGuide.bottomAnchor, constant: -safeGuide.layoutFrame.size.height * distanceFromBottomMultiplier) // Задание отступа от нижнего края с учетом Safe Area
+            // Устанавливаем констрейнты с использованием Safe Area для правильного позиционирования вида
+            view.centerYAnchor.constraint(equalTo: centerY, constant: contentView.bounds.height * distanceFromYMultiplier), // Размещение вида относительно центра по вертикали
+            view.centerXAnchor.constraint(equalTo: centerX, constant: contentView.bounds.width * distanceFromXMultiplier), // Размещение вида относительно центра по горизонтали
         ])
     }
+
 
 
 }

@@ -25,11 +25,6 @@ class CardDataProvider {
         do {
             cards = try CoreDataStack.shared.context.fetch(fetchRequest)
             print("Успешно получено (CardDataProvider.getCards) \(cards.count) из БД")
-//      ID с UUID работает - присваивается значение
-//            for card in cards {
-//                print("Card ID: \(String(describing: card.id))")
-//            }
-
             completion(cards)
         } catch {
             print("Ошибка передачи списка карт (getCards): \(error)")
@@ -53,14 +48,12 @@ class CardDataProvider {
            } else {
                print("Внимание: Отсутствует картинка")
            }
-
-
+        
         do {
             try context.save()
             // Получаем обновленный список карт после успешного добавления
             getCards { cards in
                 self.cards = cards // Обновляем локальный массив cards
-                // print("Карта успешно добавлена! Количество записей в cardEntity: \(self.cards.count)") // Отладочный вывод для отслеживания успешного добавления
                 completion() // Вызываем completion в конце, чтобы уведомить об успешном добавлении
             }
 
@@ -68,6 +61,7 @@ class CardDataProvider {
             print("Ошибка добавления карты (addCard): \(error)") // Отладочный вывод для отслеживания ошибок
         }
     }
+ 
 }
     
     // TODO: для тестирования - удаление всех карт в БД

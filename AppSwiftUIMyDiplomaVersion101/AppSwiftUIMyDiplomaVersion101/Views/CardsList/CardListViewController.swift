@@ -10,6 +10,9 @@ import UIKit
 class CardListViewController: UITableViewController {
     var cards: [CardEntity] = []
     
+    //let context = CoreDataStack.shared.context
+    //let dataChecker = DisplayCardEntityData(context: CoreDataStack.shared.context)
+    
     lazy var cardManager: CardManager = {
             let context = CoreDataStack.shared.context
             let cardDataProvider = CardDataProvider(context: context)
@@ -30,12 +33,12 @@ class CardListViewController: UITableViewController {
         super.viewDidLoad()
         title = "Список карт"
 
-        // Добавляем обработчик нажатия для кнопки customRoundButton
-        setupCustomButton()
         // Регистрируем ячейку для UITableView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CardCell")
         // Получаем данные из CardManager через протокол
         updateCardData()
+        // Добавляем обработчик нажатия для кнопки customRoundButton
+        setupCustomButton()
         
         // TODO: удаление всех карт для тестирования добавления карты на пустом списке
         // cardManager.deleteAllCards()
@@ -46,17 +49,11 @@ class CardListViewController: UITableViewController {
         cardManager.getCards { [weak self] fetchedCards in
             self?.cards = fetchedCards
             DispatchQueue.main.async {
-                self?.updateTableView()
-                // print("Успешно получено (CardListViewController) \(self?.cards.count ?? 0) из БД")
+                self?.tableView.reloadData()
+                print("Успешно получено (CardListViewController) \(self?.cards.count ?? 0) из БД")
             }
         }
     }
-    
-    // Обновление таблицы
-    private func updateTableView() {
-        self.tableView.reloadData()
-    }
-
     
     // MARK: - Table view data source
 
@@ -73,7 +70,6 @@ class CardListViewController: UITableViewController {
         let card = cards[indexPath.row]
 
         // Настройка ячейки с данными из CardEntity
-        //cell.textLabel?.text = card.id?.uuidString
         cell.textLabel?.text = card.name
         
         if let cardImage = card.image {
@@ -85,8 +81,6 @@ class CardListViewController: UITableViewController {
             let systemImageName = "questionmark.circle"
             cell.imageView?.image = UIImage(systemName: systemImageName)
         }
-        // Дополнительные настройки ячейки, например, изображения
-
         return cell
     }
     
