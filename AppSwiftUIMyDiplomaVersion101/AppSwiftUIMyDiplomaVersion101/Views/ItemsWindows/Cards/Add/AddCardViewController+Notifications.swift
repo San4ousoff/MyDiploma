@@ -8,7 +8,8 @@
 import UIKit
 
 extension AddCardViewController {
-    // Метод для отображения успешного добавления карты и кэшбеков
+    /// Метод для отображения успешного добавления карты и кэшбеков
+    // TODO: пока не получилось дописать - хочу по одному добавлять кэшбеки поверх окна с новой картой, потом их все записать в карту (и в сущность) и увидеть прямо в новой карте
     func showSuccessAndCashbacks() {
             let successAndCashbacksAlert = UIAlertController(title: "Успешное добавление карты", message: "Имя карты: \(cardName ?? "")", preferredStyle: .alert)
             
@@ -46,7 +47,7 @@ extension AddCardViewController {
                    let percentage = Double(percentageText) {
                     let newCashback = TestCashbackModel(category: categoryText, percentage: percentage)
                     self?.addCashback(newCashback)
-                    self?.showSuccessAndCashbacks() // Обновляем окно с новым кэшбеком после добавления
+                    self?.showSuccessAndCashbacks()
                 } else {
                     // Обработка неверных данных
                 }
@@ -61,16 +62,16 @@ extension AddCardViewController {
             cashbacks.append(cashback)
             //tableView.reloadData()
             // Проверяем, что методы вызываются после добавления данных
-            print("Метод addCashback выполнен, reloadData вызван")
+            debugPrint("Метод addCashback выполнен, reloadData вызван")
         }
         
     func saveAllCashbacks() {
         // Логика сохранения всех кэшбеков в базу данных
 
         // Выводим данные о кэшбеках в консоль
-        print("Все кэшбеки:")
+        debugPrint("Все кэшбеки:")
         for cashback in cashbacks {
-            print("Category: \(cashback.category), Percentage: \(cashback.percentage)%")
+            debugPrint("Category: \(cashback.category), Percentage: \(cashback.percentage)%")
         }
 
         // После сохранения всех кэшбеков в базу данных и добавления в массив,
@@ -83,6 +84,6 @@ extension AddCardViewController {
          tableView.reloadData()
 
          // После сохранения всех кэшбеков в базу данных и добавления в массив, таблица должна быть обновлена синхронно
-         print("Таблица обновлена после сохранения кэшбеков")
+        debugPrint("Таблица обновлена после сохранения кэшбеков")
      }
 }

@@ -5,16 +5,14 @@
 //  Created by Mac on 01.02.2024.
 //
 
-// Реализация менеджера категорий
 import UIKit
 import CoreData
 
+// Реализация менеджера категорий
 class CategoryManager: CategoryManagerProtocol, CategoryDataProviderObserver {
     
     var categories: [CategoryModel] = []
     
-    // Исправленный код для dataProvider в CategoryManager
-
     lazy var dataProvider: CategoryDataProvider = {
         let coreDataStack = CoreDataStack.shared // Предположим, что у вас есть CoreDataStack
         let categoryDataProvider = CategoryDataProvider(context: coreDataStack.context)
@@ -23,7 +21,10 @@ class CategoryManager: CategoryManagerProtocol, CategoryDataProviderObserver {
 
     /// Метод получения списка категорий
     func getCategories(completion: @escaping ([CategoryModel]) -> Void) {
-        debugPrint("Метод CategoryManager.getCategories запущен")
+        // TODO: отладочный принт
+//        let trace = Thread.callStackSymbols.joined(separator: "\n")
+//        debugPrint("Метод CategoryManager.getCategories запущен with stack trace:\n\(trace)")
+
         dataProvider.getCategories(completion: completion)
     }
     
@@ -32,7 +33,7 @@ class CategoryManager: CategoryManagerProtocol, CategoryDataProviderObserver {
         let newCategory = CategoryModel(id: UUID().uuidString, name: name, icon: icon, mcc: mcc)
         categories.append(newCategory)
         
-        // TODO: отладка
+        // TODO: отладочный принт
         debugPrint("Метод CategoryManager.addCategory запущен")
         debugPrint("Добавляемая категория в массив:")
         debugPrint("ID: \(newCategory.id)")
@@ -62,9 +63,7 @@ class CategoryManager: CategoryManagerProtocol, CategoryDataProviderObserver {
     }
     
     func categoryDataDidChange() {
-        // Вызываем метод getCategories(completion:) с передачей замыкания обработчика завершения
         getCategories { categories in
-            // В этом замыкании вы можете использовать полученные категории
             for category in categories {
                 print("ID: \(category.id), Name: \(category.name)")
             }

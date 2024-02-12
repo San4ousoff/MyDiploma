@@ -25,9 +25,8 @@ extension CategoryListViewController {
     @objc func openAddCategoryWindowButtonTapped() {
         let addCategoryVC = AddCategoryViewController(categoryManager: categoryManager)
         addCategoryVC.onCategoryAdded = { [weak self] in
-            self?.updateCategoryData {
-                self?.scrollToBottomIfNeeded()
-            }
+            self?.updateData()
+            self?.scrollToBottomIfNeeded()
         }
         present(addCategoryVC, animated: true, completion: nil)
     }

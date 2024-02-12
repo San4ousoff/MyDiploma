@@ -8,8 +8,6 @@
 import UIKit
 import CoreData
 
-import CoreData
-
 class CoreDataStack {
     static let shared = CoreDataStack()
     
@@ -29,7 +27,6 @@ class CoreDataStack {
             }
         })
         
-        // Subscribe to app termination and entering background notifications to save the context
         NotificationCenter.default.addObserver(forName: UIApplication.willTerminateNotification, object: nil, queue: .main) { [weak self] _ in
             self?.saveContext()
         }

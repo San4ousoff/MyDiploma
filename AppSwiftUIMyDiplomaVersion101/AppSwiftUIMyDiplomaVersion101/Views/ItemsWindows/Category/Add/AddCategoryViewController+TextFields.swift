@@ -8,12 +8,11 @@
 import UIKit
 
 extension AddCategoryViewController {
-    /// Настройка текстового поля для названия карты
+    /// Настройка текстового поля для названия категории
     func configure(_ textField: UITextField) {
         view.addSubview(textField)
         textField.placeholder = "Название категории"
         textField.borderStyle = .roundedRect
-        //textField.backgroundColor = UIColor.lightGray
         textField.layer.cornerRadius = 8
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.gray.cgColor

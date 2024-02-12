@@ -5,10 +5,10 @@
 //  Created by Mac on 17.01.2024.
 //
 
-// Реализация менеджера карт
 import Foundation
 import UIKit
 
+// Реализация менеджера карт
 class CardManager: CardManagerProtocol {
     let cardDataProvider: CardDataProvider
     
@@ -26,19 +26,16 @@ class CardManager: CardManagerProtocol {
     /// Метод добавления карты
     func addCard(_ name: String, _ imageData: Data, completion: @escaping () -> Void) {
         cardDataProvider.addCard(name, imageData) {
-            // После успешного добавления вызываем обратный вызов
             completion()
         }
     }
 
     /// Метод редактирования карты
     func editCard(_ card: CardEntity) {
-        // ваша текущая реализация редактирования карт
     }
 
     /// Метод удаления карты
     func deleteCard(_ card: CardEntity) {
-        // ваша текущая реализация удаления карт
     }
 }
 

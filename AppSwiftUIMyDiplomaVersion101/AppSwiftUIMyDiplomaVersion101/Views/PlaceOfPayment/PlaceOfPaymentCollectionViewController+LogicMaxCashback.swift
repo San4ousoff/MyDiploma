@@ -6,7 +6,8 @@
 //
 
 extension PlaceOfPaymentCollectionViewController {
-    // MARK: - логика поиска карт с максимальным кэшбеком
+    /// Метод, реализующий логику поиска карт с максимальным кэшбеком
+    // TODO: основной логический код
     func findCardsWithMaxCashback(forCategory category: CategoryModel) -> [(CardModel, Double)] {
         var result: [(CardModel, Double)] = []
         

@@ -36,12 +36,8 @@ class CategoryListViewController: UITableViewController, CategoryDataProviderObs
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CategoryCell")
         
         categoryManager.dataProvider.addObserver(self)
-//        updateCategoryData {
-//            // Этот блок выполнится после завершения обновления категорий
-//            print("Метод CategoryListViewController.updateCategoryData - данные категорий обновлены")
-//        }
+
         updateData()
-        debugPrint("Метод CategoryListViewController.updateData - данные категорий обновлены")
         
         configure(openAddCategoryWindowButton)
 
@@ -49,23 +45,14 @@ class CategoryListViewController: UITableViewController, CategoryDataProviderObs
         let inset = UIEdgeInsets(top: 0, left: 0, bottom: buttonHeight, right: 0)
         tableView.contentInset = inset
         tableView.scrollIndicatorInsets = inset
-        
-        //categoryManager.dataProvider.observer = self
+  
     }
-    
-    // Обновленный метод updateCategoryData с использованием замыкания
-    internal func updateCategoryData(completion: @escaping () -> Void) {
-        categoryManager.getCategories { categories in
-            self.categories = categories
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                completion() // Вызываем замыкание после обновления данных
-            }
-        }
-    }
-    
+
     func updateData() {
+        // TODO: отладочный принт - пока не отловил проблему почему метод вызывается 3 раза, подозреваю что дело в Обсервере
+//        let trace = Thread.callStackSymbols.joined(separator: "\n")
+//        debugPrint("Метод CategoryListViewController.updateData запущен with stack trace:\n\(trace)")
+        
         DispatchQueue.global().async {
             self.categoryManager.getCategories { categories in
                 DispatchQueue.main.async {
@@ -94,7 +81,6 @@ class CategoryListViewController: UITableViewController, CategoryDataProviderObs
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
         let category = categories[indexPath.row]
 
-        // Настройка ячейки с данными из CategoryModel
         cell.textLabel?.text = category.name
         
         let categoryIcon = category.icon
@@ -106,7 +92,7 @@ class CategoryListViewController: UITableViewController, CategoryDataProviderObs
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCategory = categories[indexPath.row]
         let message = "Выбрана категория: \(selectedCategory.name)"
-        PopupStub.showPopup(title: "Информация о категории", message: message, viewController: self)
+        PopupStub.showPopup(title: "Заглушка", message: message, viewController: self)
     }
 }
 

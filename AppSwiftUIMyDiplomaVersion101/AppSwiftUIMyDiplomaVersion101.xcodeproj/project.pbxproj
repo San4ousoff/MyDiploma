@@ -225,14 +225,6 @@
 			path = Cashback;
 			sourceTree = "<group>";
 		};
-		044FDF2E2B5A5C830098F588 /* Helper Files */ = {
-			isa = PBXGroup;
-			children = (
-				044FDF2F2B5A5E1B0098F588 /* RoundButtonWithSettings.swift */,
-			);
-			path = "Helper Files";
-			sourceTree = "<group>";
-		};
 		04595F5A2B6BCD4200A58D40 /* Add */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,7 +362,6 @@
 				048F3D352B56A98600115D09 /* PlaceOfPayment */,
 				0432EEFE2B57D31300C3274C /* CardsList */,
 				04595F5F2B6BCDF700A58D40 /* CategoryList */,
-				044FDF2E2B5A5C830098F588 /* Helper Files */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -378,6 +369,7 @@
 		0476020F2B55B2E500CC5D11 /* Helper Files */ = {
 			isa = PBXGroup;
 			children = (
+				044FDF2F2B5A5E1B0098F588 /* RoundButtonWithSettings.swift */,
 				0476020D2B55A45700CC5D11 /* PopupStub.swift */,
 				047602122B55B3DB00CC5D11 /* ConstraintsConstructor.swift */,
 			);

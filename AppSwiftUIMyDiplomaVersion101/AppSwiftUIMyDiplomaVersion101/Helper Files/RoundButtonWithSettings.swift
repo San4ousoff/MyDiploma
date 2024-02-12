@@ -7,6 +7,12 @@
 
 import UIKit
 
+/// Отображает круглую настраиваемую кнопку
+///
+/// - Parameters:
+///   - title: Название (один символ) на кнопке
+///   - backgroundColor: Цвет кнопки
+///   - titleColor: Цвет шрифта
 class RoundButtonWithSettings: UIButton {
     init(title: String, backgroundColor: UIColor, titleColor: UIColor) {
         super.init(frame: .zero)
@@ -21,8 +27,6 @@ class RoundButtonWithSettings: UIButton {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
-        // Дополнительные настройки при необходимости
     }
 
     override func layoutSubviews() {

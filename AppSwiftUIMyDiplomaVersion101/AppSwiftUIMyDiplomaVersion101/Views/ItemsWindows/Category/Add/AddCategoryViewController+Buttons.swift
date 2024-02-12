@@ -8,7 +8,7 @@
 import UIKit
 
 extension AddCategoryViewController {
-    /// Настройка кнопки добавления новой карты
+    /// Настройка кнопки добавления новой категории
     func configure(_ button: RoundButtonWithSettings) {
         button.addTarget(self, action: #selector(addNewCategoryButtonTapped), for: .touchUpInside)
         view.addSubview(button)
@@ -16,10 +16,10 @@ extension AddCategoryViewController {
         ConstraintsConstructor.setupViewConstraints(view: addNewCategoryButton, contentView: view, distanceFromYMultiplier: 0.4, distanceFromXMultiplier: 0)
     }
     
-    /// Обработчик нажатия на кнопку добавления новой карты
+    /// Обработчик нажатия на кнопку добавления новой категории
     @objc func addNewCategoryButtonTapped() {
         if let categoryName = categoryNameTextField.text, let image = addImageForCategoryButton.imageView?.image, let _ = image.pngData() {
-            categoryManager.addCategory(categoryName, image, 0) // Добавляем новую категорию через CategoryManager
+            categoryManager.addCategory(categoryName, image, 0)
 
             DispatchQueue.main.async {
                 // После успешного добавления категории уведомляем об изменениях
@@ -30,7 +30,7 @@ extension AddCategoryViewController {
     }
     
     // TODO: доработать код - сделать более универсальным, убрать констрейнты из текущего класса
-    /// Настройка кнопки добавления изображения для новой карты
+    /// Настройка кнопки добавления изображения для новой категории
     func configure(_ button: UIButton) {
         imagePicker.delegate = self
         imagePicker.allowsEditing = false

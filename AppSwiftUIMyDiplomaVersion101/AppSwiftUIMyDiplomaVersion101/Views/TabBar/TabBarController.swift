@@ -54,7 +54,7 @@ class TabBarController: UITabBarController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        // Применение анимации выезжания из левой стороны к таб-бару
+        // Анимация выезжания из левой стороны к таб-бару
         self.tabBar.slideInFromLeft(duration: 1)
     }
 }

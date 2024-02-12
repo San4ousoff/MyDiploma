@@ -12,7 +12,6 @@ class CategoryDataProvider {
     
     weak var observer: CategoryDataProviderObserver?
     var observers: [CategoryDataProviderObserver] = []
-    //let manager: CategoryManager
     
     let context: NSManagedObjectContext
     var categories: [CategoryEntity] = []
@@ -24,6 +23,7 @@ class CategoryDataProvider {
     
     func getCategories(completion: @escaping ([CategoryModel]) -> Void) {
             var categories: [CategoryEntity] = []
+            // TODO: отладочный принт
             debugPrint("Метод CategoryDataProvider.getCategories запущен")
 
             let fetchRequest: NSFetchRequest<CategoryEntity> = CategoryEntity.fetchRequest()
@@ -31,11 +31,12 @@ class CategoryDataProvider {
                 // Получаем данные CategoryEntity из контекста
                 categories = try context.fetch(fetchRequest)
                 
-                // Преобразование данных из CategoryEntity в CategoryModel
+                // Преобразовываем данные из CategoryEntity в CategoryModel
                 let categoryModels: [CategoryModel] = categories.map { categoryEntity in
                     return CategoryModel(id: categoryEntity.id ?? "", name: categoryEntity.name ?? "", icon: UIImage(), mcc: categoryEntity.mcc)
                 }
 
+                // TODO: отладочный принт
                 debugPrint("Полученные категории из сущности:")
                 for category in categoryModels {
                     debugPrint("ID: \(category.id)")
@@ -45,7 +46,7 @@ class CategoryDataProvider {
 
                 completion(categoryModels)
             } catch {
-                print("Ошибка передачи списка категорий (getCategories): \(error)")
+                print("Ошибка передачи списка категорий (CategoryDataProvider.getCategories): \(error)")
                 completion([])
             }
     }
@@ -59,6 +60,7 @@ class CategoryDataProvider {
         let imageData = category.icon.pngData()
         newCategory.icon = imageData
         
+        // TODO: отладочный принт
         debugPrint("Метод CategoryDataProvider.addCategory запущен")
         debugPrint("Добавляемая категория в сущность:")
         debugPrint("ID: \(newCategory.id ?? "N/A")")
@@ -69,7 +71,7 @@ class CategoryDataProvider {
             completion()
             notifyObservers()
         } catch {
-            print("Ошибка добавления категории (addCategory): \(error)")
+            print("Ошибка добавления категории (CategoryDataProvider.addCategory): \(error)")
         }
     }
     

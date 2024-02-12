@@ -24,7 +24,6 @@ class BaseItemViewController: UIViewController {
         return button
     }()
     
-    /// Метод жизненного цикла, вызываемый после загрузки представления
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white

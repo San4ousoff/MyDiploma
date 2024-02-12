@@ -9,7 +9,7 @@ import UIKit
 
 class CategoryCell: UICollectionViewCell {
     
-    // MARK: - Properties
+    // MARK: - переменные
     
     let button: UIButton = {
         let button = UIButton()
@@ -32,8 +32,6 @@ class CategoryCell: UICollectionViewCell {
         return label
     }()
     
-    // MARK: - Initialization
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -46,7 +44,7 @@ class CategoryCell: UICollectionViewCell {
         setupViews()
     }
     
-    // MARK: - UI Setup
+    // MARK: - настройка вьюшек
     
     private func setupViews() {
         addSubview(button)

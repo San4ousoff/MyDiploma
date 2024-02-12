@@ -12,13 +12,13 @@ import UIKit
 
 class AddCategoryViewController: BaseItemViewController {
     
-    /// Текстовое поле для ввода названия карты
+    /// Текстовое поле для ввода названия категории
     let categoryNameTextField: UITextField = UITextField()
     
-    /// Кнопка добавления карты в БД
+    /// Кнопка добавления категории в БД
     let addNewCategoryButton: RoundButtonWithSettings = RoundButtonWithSettings(title: "+", backgroundColor: .systemGreen, titleColor: .white)
     
-    /// Кнопка добавления изображения карты в окно
+    /// Кнопка добавления изображения категории в окно
     let addImageForCategoryButton: UIButton = UIButton()
     
     let imagePicker = UIImagePickerController()
@@ -39,7 +39,6 @@ class AddCategoryViewController: BaseItemViewController {
     var categoryAddedClosure: (() -> Void)?
     
     // MARK: - методы
-    /// Метод жизненного цикла, вызываемый после загрузки представления
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()

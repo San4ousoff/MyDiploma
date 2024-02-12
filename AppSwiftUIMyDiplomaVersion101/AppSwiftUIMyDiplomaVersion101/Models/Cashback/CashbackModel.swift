@@ -12,7 +12,7 @@ struct CashbackModel: CashbackProtocol {
     var id: String
     var categoryID: String
     var cardID: String
-    var percentage: Double // Должно быть изменяемым
+    var percentage: Double
 
     init(id: String, categoryID: String, cardID: String, percentage: Double) {
         self.id = id

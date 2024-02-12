@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Реализация модели кэшбека, соответствующей протоколу CashbackProtocol
+// TODO: тестовая модель для заглушки нерешенной задачи по созданию сущности Кэшбека из сущностей Карты и Категории из вью Добавить новую карту
 struct TestCashbackModel {
     var category: String
     var percentage: Double

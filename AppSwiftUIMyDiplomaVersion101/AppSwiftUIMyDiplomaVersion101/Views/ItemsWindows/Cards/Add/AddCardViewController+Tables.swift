@@ -25,7 +25,6 @@ extension AddCardViewController {
 
         // Добавляем название "Список кэшбеков" как заголовок к таблице
         let tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50))
-        //tableHeaderView.backgroundColor = .lightGray
 
         // Создаем и настраиваем UILabel для заголовка
         let titleLabel = UILabel()
@@ -61,8 +60,5 @@ extension AddCardViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Обработка выбора кэшбека
     }
-
-
-    // Дополнительные методы и функциональность
 
 }

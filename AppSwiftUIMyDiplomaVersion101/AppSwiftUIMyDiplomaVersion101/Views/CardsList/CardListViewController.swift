@@ -35,7 +35,6 @@ class CardListViewController: UITableViewController {
         updateCardData()
         configure(openAddCardWindowButton)
 
-        // Set the content inset to account for the button
         let buttonHeight: CGFloat = openAddCardWindowButton.frame.size.height
         let inset = UIEdgeInsets(top: 0, left: 0, bottom: buttonHeight, right: 0)
         tableView.contentInset = inset
@@ -48,12 +47,12 @@ class CardListViewController: UITableViewController {
             self?.cards = fetchedCards
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
-                // print("Успешно получено (CardListViewController) \(self?.cards.count ?? 0) из БД")
+                // debugPrint("Успешно получено (CardListViewController) \(self?.cards.count ?? 0) из БД")
             }
         }
     }
     
-    // MARK: - Table view data source
+    // MARK: - настройки таблицы
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -71,7 +70,7 @@ class CardListViewController: UITableViewController {
         cell.textLabel?.text = card.name
         
         if let cardImage = card.image {
-            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50)) // Замените значения на ваши реальные размеры
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50)) 
             imageView.image = UIImage(data: cardImage)
             cell.accessoryView = imageView
         } else {
@@ -85,6 +84,6 @@ class CardListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCard = cards[indexPath.row]
         let message = "Выбрана карта: \(selectedCard.name ?? "*** без имени ***")"
-        PopupStub.showPopup(title: "Информация о карте", message: message, viewController: self)
+        PopupStub.showPopup(title: "Заглушка", message: message, viewController: self)
     }
 }

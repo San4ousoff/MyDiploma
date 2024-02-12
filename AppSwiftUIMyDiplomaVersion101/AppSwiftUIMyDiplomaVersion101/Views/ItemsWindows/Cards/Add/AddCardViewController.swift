@@ -49,7 +49,6 @@ class AddCardViewController: BaseItemViewController, UITableViewDelegate, UITabl
     var onCardAdded: (() -> Void)?
     
     // MARK: - методы
-    /// Метод жизненного цикла, вызываемый после загрузки представления
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self

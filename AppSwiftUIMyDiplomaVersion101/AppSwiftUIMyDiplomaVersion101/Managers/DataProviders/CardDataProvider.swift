@@ -24,7 +24,7 @@ class CardDataProvider {
         let fetchRequest: NSFetchRequest<CardEntity> = CardEntity.fetchRequest()
         do {
             cards = try CoreDataStack.shared.context.fetch(fetchRequest)
-            //print("Успешно получено (CardDataProvider.getCards) \(cards.count) из БД")
+            //debugPrint("Успешно получено (CardDataProvider.getCards) \(cards.count) из БД")
             completion(cards)
         } catch {
             print("Ошибка передачи списка карт (getCards): \(error)")
@@ -50,9 +50,9 @@ class CardDataProvider {
         
         do {
             try context.save()
-            completion() // Вызываем completion в конце, чтобы уведомить об успешном добавлении
+            completion()
         } catch {
-            print("Ошибка добавления карты (addCard): \(error)") // Отладочный вывод для отслеживания ошибок
+            print("Ошибка добавления карты (addCard): \(error)")
         }
     }
     
