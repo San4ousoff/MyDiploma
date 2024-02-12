@@ -11,26 +11,24 @@ class PlaceOfPaymentCollectionViewController: UICollectionViewController {
 
     // MARK: - Данные
     
-    // Массив категорий товаров
-    // TODO: Заменить этот массив на данные, из модели, которую заполняет пользователь
-    private let categories: [CategoryModel] = [
-        CategoryModel(name: "Еда", icon: "🍔"),
-        CategoryModel(name: "Путешествия", icon: "✈️"),
-        CategoryModel(name: "Спорт", icon: "⚽️"),
-        CategoryModel(name: "Шоппинг", icon: "🛍"),
-        CategoryModel(name: "Фильмы", icon: "🎬"),
-        CategoryModel(name: "Музыка", icon: "🎵"),
-        CategoryModel(name: "Игры", icon: "🎮"),
-        CategoryModel(name: "Книги", icon: "📚"),
-        CategoryModel(name: "Здоровье", icon: "⛹️‍♂️"),
-        CategoryModel(name: "Техника", icon: "📱")
+    var uniqueCategories: [CategoryModel] = []
+   
+    internal let cards: [CardModel] = [
+        CardModel(id: "1", name: "Зарплатная", image: UIImage(systemName: "😄") ?? UIImage()),
+        CardModel(id: "2", name: "Дебетовая", image: UIImage(systemName: "😐") ?? UIImage()),
+        CardModel(id: "3", name: "Кредитная", image: UIImage(systemName: "😢") ?? UIImage())
     ]
     
-    // MARK: - Жизненный цикл
+    internal let categories: [CategoryModel] = [
+        CategoryModel(id: "1", name: "Кафе", icon: UIImage(systemName: "cup.and.saucer") ?? UIImage(), mcc: 0),
+        CategoryModel(id: "2", name: "Кино", icon: UIImage(systemName: "film") ?? UIImage(), mcc: 0),
+        CategoryModel(id: "3", name: "АЗС", icon: UIImage(systemName: "car") ?? UIImage(), mcc: 0),
+        CategoryModel(id: "4", name: "Супермаркет", icon: UIImage(systemName: "cart.fill") ?? UIImage(), mcc: 0),
+        CategoryModel(id: "5", name: "Авиабилеты", icon: UIImage(systemName: "airplane") ?? UIImage(), mcc: 0)
+    ]
     
-    /// Инициализация контроллера
-    ///
-    /// - Note: А также настройка вида коллекции, регистрация ячейки и установка фона.
+    internal var cashbacks: [CashbackModel] = []
+    
     init() {
         let layout = UICollectionViewFlowLayout()
         super.init(collectionViewLayout: layout)
@@ -42,49 +40,42 @@ class PlaceOfPaymentCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let layout = UICollectionViewFlowLayout()
-        let spacing: CGFloat = 0.25 * UIScreen.main.bounds.width / 4
-        let itemSize = (UIScreen.main.bounds.width - 2 * spacing) / 4 - spacing
-        layout.itemSize = CGSize(width: itemSize, height: itemSize + 30) // Высота кнопки + подпись
-        layout.minimumInteritemSpacing = spacing
-        layout.minimumLineSpacing = spacing
-        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
-        collectionView.collectionViewLayout = layout
-        
+            
         collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: "CategoryCell")
         collectionView.backgroundColor = .white
         title = "Места оплаты"
+        
+        setupData()
     }
-
-    // MARK: - UICollectionViewDataSource
-
-    /// Определяет количество элементов в указанной секции коллекции
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
-    }
-
-    /// Создает или переиспользует ячейку коллекции для определенного индекса пути и заполняет ее содержимым
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
-        let category = categories[indexPath.item]
-        cell.configure(withIcon: category.icon, name: category.name) // Настройка ячейки с данными категории
-        cell.button.addTarget(self, action: #selector(categoryButtonTapped), for: .touchUpInside) // Добавляем действие при нажатии на кнопку
-        return cell
-    }
-
+    
     // MARK: - Обработка нажатия на кнопку категории
 
-    @objc func categoryButtonTapped(_ sender: UIButton) {
-        guard let cell = sender.superview?.superview as? CategoryCell else { return }  // Находим соответствующую ячейку
-        guard let indexPath = collectionView.indexPath(for: cell) else { return }
+    // Метод обработчика нажатия на кнопку категории
+    @objc func categoryButtonTapped(_ sender: Any) {
+        guard let button = sender as? UIButton else {
+            return
+        }
+        
+        let location = button.convert(CGPoint.zero, to: collectionView)
+        guard let indexPath = collectionView.indexPathForItem(at: location) else { return }
+        
         let category = categories[indexPath.item]
-        PopupStub.showPopup(title: "Лучшая карта", message: "Здесь будет реализация демонстрации логики выбора карты с макс кэшбеком для категории \(category.name)", viewController: self)
+        
+        // Вызываем метод для отображения алерт-окна с изображением
+        showCardAlert(for: category)
     }
-    
-    // MARK: - TODO
-    
-    // TODO: Написать тесты для PlaceOfPaymentCollectionViewController
 }
+    
+extension PlaceOfPaymentCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let numberOfColumns: CGFloat = 4  // Количество столбцов на экране
+        let spacingBetweenCells: CGFloat = 10  // Расстояние между ячейками
+        let width = (collectionView.bounds.width - spacingBetweenCells * (numberOfColumns - 1)) / numberOfColumns
+        let height = width  // Ячейки квадратные
+        return CGSize(width: width, height: height)
+    }
+}
+
+
 
 

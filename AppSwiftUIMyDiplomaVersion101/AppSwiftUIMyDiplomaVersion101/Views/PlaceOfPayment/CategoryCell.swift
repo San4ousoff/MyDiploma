@@ -11,59 +11,69 @@ class CategoryCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    // Инициализация кнопки
     let button: UIButton = {
         let button = UIButton()
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 75) // Установка шрифта кнопки
-        button.contentHorizontalAlignment = .fill
-        button.contentVerticalAlignment = .fill
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
+    let iconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    let nameLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.numberOfLines = 2
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     // MARK: - Initialization
     
-    // Инициализация ячейки
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(button) // Добавление кнопки на представление ячейки
+
+        setupViews()
     }
     
-    // Инициализация из storyboard или xib
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        contentView.addSubview(button) // Добавление кнопки на представление ячейки
-    }
-    
-    // MARK: - Configuration
-    
-    // Метод для настройки ячейки с иконкой и названием
-    ///
-    /// - Parameters:
-    ///   - icon: Иконка для отображения на кнопке
-    ///   - name: Текст для отображения под кнопкой
-    func configure(withIcon icon: String, name: String) {
-        let iconFontSizePercentage: CGFloat = 0.5 // Процентная доля от ширины кнопки
-        let labelFontSizePercentage: CGFloat = 0.05 // Процентная доля от ширины кнопки
-        
-        button.setTitle(icon, for: .normal)
-        button.titleLabel?.numberOfLines = 2
-        button.titleLabel?.textAlignment = .center
-        button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.titleLabel?.minimumScaleFactor = 0.5
-        button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = button.titleLabel?.font.withSize(button.bounds.width * iconFontSizePercentage)
-        
-        let label = UILabel()
-        label.text = name
-        label.numberOfLines = 2
-        label.textAlignment = .center
-        label.font = label.font.withSize(button.bounds.width * labelFontSizePercentage)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(label)
-        
-        ConstraintsConstructor.setupButtonCellConstraints(button: button, contentView: contentView)
-        ConstraintsConstructor.setupLabelCellConstraints(label: label, button: button, contentView: contentView)
-    }
 
+        setupViews()
+    }
+    
+    // MARK: - UI Setup
+    
+    private func setupViews() {
+        addSubview(button)
+        button.addSubview(iconImageView)
+        button.addSubview(nameLabel)
+        
+        NSLayoutConstraint.activate([
+            button.topAnchor.constraint(equalTo: topAnchor),
+            button.leadingAnchor.constraint(equalTo: leadingAnchor),
+            button.trailingAnchor.constraint(equalTo: trailingAnchor),
+            button.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            iconImageView.topAnchor.constraint(equalTo: button.topAnchor),
+            iconImageView.widthAnchor.constraint(equalTo: button.widthAnchor, multiplier: 0.7),
+            iconImageView.heightAnchor.constraint(equalTo: button.heightAnchor, multiplier: 0.7),
+            iconImageView.centerXAnchor.constraint(equalTo: button.centerXAnchor),
+
+            nameLabel.topAnchor.constraint(equalTo: iconImageView.bottomAnchor),
+            nameLabel.leadingAnchor.constraint(equalTo: button.leadingAnchor),
+            nameLabel.trailingAnchor.constraint(equalTo: button.trailingAnchor),
+            nameLabel.bottomAnchor.constraint(equalTo: button.bottomAnchor),
+        ])
+    }
+    
+    func configure(withIcon icon: UIImage, name: String) {
+        iconImageView.image = icon
+        nameLabel.text = name
+    }
 }
+

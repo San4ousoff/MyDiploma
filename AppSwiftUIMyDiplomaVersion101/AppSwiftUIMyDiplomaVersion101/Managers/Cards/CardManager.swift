@@ -25,10 +25,10 @@ class CardManager: CardManagerProtocol {
 
     /// Метод добавления карты
     func addCard(_ name: String, _ imageData: Data, completion: @escaping () -> Void) {
-            cardDataProvider.addCard(name, imageData) {
-                // После успешного добавления вызываем обратный вызов
-                completion()
-            }
+        cardDataProvider.addCard(name, imageData) {
+            // После успешного добавления вызываем обратный вызов
+            completion()
+        }
     }
 
     /// Метод редактирования карты
@@ -40,7 +40,6 @@ class CardManager: CardManagerProtocol {
     func deleteCard(_ card: CardEntity) {
         // ваша текущая реализация удаления карт
     }
-
 }
 
   

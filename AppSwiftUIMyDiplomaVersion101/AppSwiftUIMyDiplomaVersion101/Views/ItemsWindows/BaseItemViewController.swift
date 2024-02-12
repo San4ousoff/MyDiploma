@@ -39,19 +39,6 @@ class BaseItemViewController: UIViewController {
         setupCloseButton()
     }
     
-    /// Настройка кнопки закрытия
-    func setupCloseButton() {
-        closeButton.addTarget(self, action: #selector(closeTapped), for: .touchUpInside) // Добавляем обработчик нажатия на кнопку закрытия
-        
-        view.addSubview(closeButton) // Добавляем кнопку закрытия на представление
-        closeButton.translatesAutoresizingMaskIntoConstraints = false
-        ConstraintsConstructor.setupViewConstraints(view: closeButton, contentView: view, distanceFromYMultiplier: -0.42, distanceFromXMultiplier: 0.42)
-    }
-    
-    /// Обработчик нажатия на кнопку закрытия
-    @objc func closeTapped() {
-        dismiss(animated: true, completion: nil)
-    }
 }
 
 

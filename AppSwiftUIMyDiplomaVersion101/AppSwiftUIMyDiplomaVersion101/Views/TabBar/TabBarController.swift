@@ -21,20 +21,20 @@ class TabBarController: UITabBarController {
         // Инициализируем представление для отображения Списка карт
         let cardListViewController = CardListViewController()
         cardListViewController.tabBarItem = UITabBarItem(title: "Карты", image: UIImage(systemName: "creditcard"), tag: 1)
-
-        // TODO: Надо написать представление для списка категорий
-        let categoryViewController = UIViewController()
-        categoryViewController.tabBarItem = UITabBarItem(title: "Категории", image: UIImage(systemName: "square.grid.2x2"), tag: 2)
+        
+        // Инициализируем представление для отображения Списка категорий
+        let categoryListViewController = CategoryListViewController()
+        categoryListViewController.tabBarItem = UITabBarItem(title: "Категории", image: UIImage(systemName: "square.grid.2x2"), tag: 2)
                
         // Создаем UINavigationController для каждого представления
         let placeOfPaymentNavigationController = UINavigationController(rootViewController: placeOfPaymentCollectionVC)
         let cardNavigationController = UINavigationController(rootViewController: cardListViewController)
-        let categoryNavigationController = UINavigationController(rootViewController: categoryViewController)
+        let categoryNavigationController = UINavigationController(rootViewController: categoryListViewController)
 
         // Устанавливаем UINavigationController для каждого представления
         setViewControllers([placeOfPaymentNavigationController, cardNavigationController, categoryNavigationController], animated: false)
         
-        // MARK: - Изменение порядка вкладок и заглушка
+        // MARK: - Изменение порядка вкладок
         
         // Изменяем порядок вкладок на основе тега, чтобы Таб, запускающий placeOfPaymentCollectionVC, был в центре
         if var viewControllers = viewControllers, viewControllers.count > 1 {
@@ -46,14 +46,6 @@ class TabBarController: UITabBarController {
             let placeOfPaymentVC = viewControllers.remove(at: placeOfPaymentIndex)
             viewControllers.insert(placeOfPaymentVC, at: 1)
             setViewControllers(viewControllers, animated: false)
-        }
-    }
-    
-    // MARK: - Обработка выбора вкладок в таб-баре
-    
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        if item.tag == 2 {
-            PopupStub.showPopup(title: "Категории", message: "Здесь будет реализация View для Категорий", viewController: self)
         }
     }
     

@@ -24,7 +24,7 @@ class CardDataProvider {
         let fetchRequest: NSFetchRequest<CardEntity> = CardEntity.fetchRequest()
         do {
             cards = try CoreDataStack.shared.context.fetch(fetchRequest)
-            print("Успешно получено (CardDataProvider.getCards) \(cards.count) из БД")
+            //print("Успешно получено (CardDataProvider.getCards) \(cards.count) из БД")
             completion(cards)
         } catch {
             print("Ошибка передачи списка карт (getCards): \(error)")
@@ -33,34 +33,30 @@ class CardDataProvider {
     }
     
     func addCard(_ name: String, _ imageData: Data, completion: @escaping () -> Void) {
-        // print("Попытка вызова метода...") // Отладочный вывод для отслеживания вызова метода
         let newCard = CardEntity(context: context)
         newCard.id = UUID()
         
         if !name.isEmpty {
-               newCard.name = name
-           } else {
-               print("Внимание: Пустое имя для карточки")
-           }
+            newCard.name = name
+        } else {
+            print("Внимание: Пустое имя для карточки")
+        }
 
         if !imageData.isEmpty {
-               newCard.image = imageData
-           } else {
-               print("Внимание: Отсутствует картинка")
-           }
+            newCard.image = imageData
+        } else {
+            print("Внимание: Отсутствует картинка")
+        }
         
         do {
             try context.save()
-            // Получаем обновленный список карт после успешного добавления
-            getCards { cards in
-                self.cards = cards // Обновляем локальный массив cards
-                completion() // Вызываем completion в конце, чтобы уведомить об успешном добавлении
-            }
-
+            completion() // Вызываем completion в конце, чтобы уведомить об успешном добавлении
         } catch {
             print("Ошибка добавления карты (addCard): \(error)") // Отладочный вывод для отслеживания ошибок
         }
     }
+    
+    
  
 }
     

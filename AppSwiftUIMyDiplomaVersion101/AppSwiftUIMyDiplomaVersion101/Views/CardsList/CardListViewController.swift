@@ -10,16 +10,13 @@ import UIKit
 class CardListViewController: UITableViewController {
     var cards: [CardEntity] = []
     
-    //let context = CoreDataStack.shared.context
-    //let dataChecker = DisplayCardEntityData(context: CoreDataStack.shared.context)
-    
     lazy var cardManager: CardManager = {
             let context = CoreDataStack.shared.context
             let cardDataProvider = CardDataProvider(context: context)
             return CardManager(cardDataProvider: cardDataProvider)
         }()
     
-    let customRoundButton = RoundButtonWithSettings(title: "+", backgroundColor: .systemBlue, titleColor: .white)
+    let openAddCardWindowButton = RoundButtonWithSettings(title: "+", backgroundColor: .systemBlue, titleColor: .white)
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -32,16 +29,17 @@ class CardListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Список карт"
+        self.tabBarItem.title = "Карты"
 
-        // Регистрируем ячейку для UITableView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CardCell")
-        // Получаем данные из CardManager через протокол
         updateCardData()
-        // Добавляем обработчик нажатия для кнопки customRoundButton
-        setupCustomButton()
-        
-        // TODO: удаление всех карт для тестирования добавления карты на пустом списке
-        // cardManager.deleteAllCards()
+        configure(openAddCardWindowButton)
+
+        // Set the content inset to account for the button
+        let buttonHeight: CGFloat = openAddCardWindowButton.frame.size.height
+        let inset = UIEdgeInsets(top: 0, left: 0, bottom: buttonHeight, right: 0)
+        tableView.contentInset = inset
+        tableView.scrollIndicatorInsets = inset
     }
     
     // Обновление данных карт
@@ -50,7 +48,7 @@ class CardListViewController: UITableViewController {
             self?.cards = fetchedCards
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
-                print("Успешно получено (CardListViewController) \(self?.cards.count ?? 0) из БД")
+                // print("Успешно получено (CardListViewController) \(self?.cards.count ?? 0) из БД")
             }
         }
     }

@@ -9,7 +9,7 @@ import CoreData
 
 /* TODO: тестирование - получение данных из сущности в консоль
 Применение:
-let displayCardEntityData= DisplayCardEntityData(context: CoreDataStack.shared.context)
+let displayCardEntityData = DisplayCardEntityData(context: CoreDataStack.shared.context)
 displayCardEntityData.checkContextContent()
 **/
 class DisplayCardEntityData {

@@ -8,13 +8,13 @@
 import UIKit
 
 // Реализация модели карты, соответствующей протоколу CardProtocol
-class CardModel: CardProtocol {
-    var id: UUID?
-    var name: String?
-    var image: UIImage?
+struct CardModel: CardModelProtocol {
+    var id: String
+    var name: String
+    var image: UIImage
 
-    init(name: String, image: UIImage) {
-        self.id = UUID() // генерация нового UUID
+    init(id: String, name: String, image: UIImage) {
+        self.id = id
         self.name = name
         self.image = image
     }

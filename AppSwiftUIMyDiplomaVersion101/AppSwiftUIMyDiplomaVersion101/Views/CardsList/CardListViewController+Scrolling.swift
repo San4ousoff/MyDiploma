@@ -8,7 +8,7 @@
 import UIKit
 
 extension CardListViewController {
-    // Методы для прокрутки таблицы
+    /// Настройка прокрутки таблицы
     func scrollToBottomIfNeeded() {
         DispatchQueue.main.async {
             let indexPath = IndexPath(row: self.cards.count - 1, section: 0)

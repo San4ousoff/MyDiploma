@@ -18,7 +18,14 @@ class PopupStub {
     ///   - viewController: ViewController, на котором нужно отобразить всплывающее окно
     static func showPopup(title: String, message: String, viewController: UIViewController) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let attributedTitleString = NSAttributedString(string: title, attributes: [
+            NSAttributedString.Key.foregroundColor: UIColor.red
+        ])
+        alert.setValue(attributedTitleString, forKey: "attributedTitle")
+        
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         viewController.present(alert, animated: true, completion: nil)
     }
+
 }
