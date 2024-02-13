@@ -14,8 +14,13 @@ import UIKit
 ///   - backgroundColor: Цвет кнопки
 ///   - titleColor: Цвет шрифта
 class RoundButtonWithSettings: UIButton {
+    private var originalBackgroundColor: UIColor?
+    
     init(title: String, backgroundColor: UIColor, titleColor: UIColor) {
         super.init(frame: .zero)
+        
+        // Сохраняем оригинальный цвет фона кнопки
+        originalBackgroundColor = backgroundColor
         
         // Настройка внешнего вида кнопки
         self.setTitle(title, for: .normal)
@@ -23,6 +28,9 @@ class RoundButtonWithSettings: UIButton {
         setTitleColor(titleColor, for: .normal)
         self.translatesAutoresizingMaskIntoConstraints = false
         //self.widthAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        
+        addTarget(self, action: #selector(buttonPressed), for: .touchDown)
+        addTarget(self, action: #selector(buttonReleased), for: [.touchUpInside, .touchUpOutside])
     }
 
     required init?(coder: NSCoder) {
@@ -34,8 +42,11 @@ class RoundButtonWithSettings: UIButton {
         layer.cornerRadius = bounds.width / 2
     }
     
+    @objc private func buttonPressed() {
+        backgroundColor = UIColor.lightGray
+    }
+    
+    @objc private func buttonReleased() {
+        backgroundColor = originalBackgroundColor
+    }
 }
-
-
-
-

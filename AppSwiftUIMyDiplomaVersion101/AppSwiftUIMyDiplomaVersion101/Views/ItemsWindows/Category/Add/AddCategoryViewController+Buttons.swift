@@ -24,6 +24,7 @@ extension AddCategoryViewController {
             DispatchQueue.main.async {
                 // После успешного добавления категории уведомляем об изменениях
                 self.categoryManager.dataProvider.notifyObservers()
+                debugPrint("updateData 3 ACVC+B.notifyObservers")
                 self.dismiss(animated: true, completion: nil)
             }
         }

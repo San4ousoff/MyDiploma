@@ -41,6 +41,7 @@ class CategoryManager: CategoryManagerProtocol, CategoryDataProviderObserver {
                 
         dataProvider.addCategory(newCategory) {
             self.dataProvider.notifyObservers()
+            debugPrint("updateData 2 CategoryManager.notifyObservers")
         }
     }
     

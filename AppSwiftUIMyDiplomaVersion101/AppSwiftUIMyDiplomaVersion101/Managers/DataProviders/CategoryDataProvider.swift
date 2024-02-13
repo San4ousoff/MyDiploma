@@ -70,6 +70,7 @@ class CategoryDataProvider {
             try context.save()
             completion()
             notifyObservers()
+            debugPrint("updateData 1 CategoryDataProvider.notifyObservers")
         } catch {
             print("Ошибка добавления категории (CategoryDataProvider.addCategory): \(error)")
         }
