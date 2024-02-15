@@ -1,12 +1,10 @@
 //
-//  CategoryDataProviderObserver.swift
+//  CategoryDataProviderObserverProtocol.swift
 //  AppSwiftUIMyDiplomaVersion101
 //
 //  Created by Mac on 09.02.2024.
 //
 
-import CoreData
-
-protocol CategoryDataProviderObserver: AnyObject {
+protocol CategoryDataProviderObserverProtocol: AnyObject {
     func categoryDataDidChange()
 }

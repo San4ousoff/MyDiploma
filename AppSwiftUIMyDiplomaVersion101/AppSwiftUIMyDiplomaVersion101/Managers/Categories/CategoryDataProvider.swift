@@ -33,7 +33,7 @@ class CategoryDataProvider {
                 
                 // Преобразовываем данные из CategoryEntity в CategoryModel
                 let categoryModels: [CategoryModel] = categories.map { categoryEntity in
-                    return CategoryModel(id: categoryEntity.id ?? "", name: categoryEntity.name ?? "", icon: UIImage(), mcc: categoryEntity.mcc)
+                    return convertCategoryEntityToModel(categoryEntity)
                 }
 
                 // TODO: отладочный принт
@@ -50,7 +50,6 @@ class CategoryDataProvider {
                 completion([])
             }
     }
-
     
     func addCategory(_ category: CategoryModel, completion: @escaping () -> Void) {
         let newCategory = CategoryEntity(context: context)
@@ -73,16 +72,6 @@ class CategoryDataProvider {
             debugPrint("updateData 1 CategoryDataProvider.notifyObservers")
         } catch {
             print("Ошибка добавления категории (CategoryDataProvider.addCategory): \(error)")
-        }
-    }
-    
-    func addObserver(_ observer: CategoryDataProviderObserver) {
-        observers.append(observer)
-    }
-    
-    func notifyObservers() {
-        for observer in observers {
-            observer.categoryDataDidChange()
         }
     }
 }

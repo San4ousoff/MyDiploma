@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 // Реализация менеджера категорий
-class CategoryManager: CategoryManagerProtocol, CategoryDataProviderObserver {
+class CategoryManager: CategoryManagerProtocol {
     
     var categories: [CategoryModel] = []
     
@@ -18,7 +18,7 @@ class CategoryManager: CategoryManagerProtocol, CategoryDataProviderObserver {
         let categoryDataProvider = CategoryDataProvider(context: coreDataStack.context)
         return categoryDataProvider
     }()
-
+    
     /// Метод получения списка категорий
     func getCategories(completion: @escaping ([CategoryModel]) -> Void) {
         // TODO: отладочный принт
@@ -38,11 +38,8 @@ class CategoryManager: CategoryManagerProtocol, CategoryDataProviderObserver {
         debugPrint("Добавляемая категория в массив:")
         debugPrint("ID: \(newCategory.id)")
         debugPrint("Name: \(newCategory.name)")
-                
-        dataProvider.addCategory(newCategory) {
-            self.dataProvider.notifyObservers()
-            debugPrint("updateData 2 CategoryManager.notifyObservers")
-        }
+        
+        dataProvider.addCategory(newCategory) {}
     }
     
     /// Метод редактирования категории
@@ -52,7 +49,7 @@ class CategoryManager: CategoryManagerProtocol, CategoryDataProviderObserver {
             categories[index].icon = icon
             categories[index].mcc = mcc
             
-            dataProvider.notifyObservers()
+            //dataProvider.editCategory() - сначала надо получить искомую категорию из сущности, отредактировать, а потом записать
         }
     }
 
@@ -60,20 +57,7 @@ class CategoryManager: CategoryManagerProtocol, CategoryDataProviderObserver {
     func deleteCategory(categoryId: String) {
         categories = categories.filter { $0.id != categoryId }
         
-        dataProvider.notifyObservers()
+        //dataProvider.deleteCategory() - сначала надо получить все категории из сущности, удалить нужную и записать все обратно
     }
-    
-    func categoryDataDidChange() {
-        getCategories { categories in
-            for category in categories {
-                print("ID: \(category.id), Name: \(category.name)")
-            }
-        }
-    }
+
 }
-
-
-
-
-
-

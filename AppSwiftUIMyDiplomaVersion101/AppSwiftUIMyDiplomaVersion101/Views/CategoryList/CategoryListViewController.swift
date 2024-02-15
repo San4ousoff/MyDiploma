@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CategoryListViewController: UITableViewController, CategoryDataProviderObserver {
+class CategoryListViewController: UITableViewController, CategoryDataProviderObserverProtocol {
     var categories: [CategoryModel] = []
     
     lazy var categoryManager: CategoryManager = {

@@ -58,8 +58,10 @@
 		047602132B55B3DB00CC5D11 /* ConstraintsConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047602122B55B3DB00CC5D11 /* ConstraintsConstructor.swift */; };
 		048CC56C2B610DE2008DDD5B /* DisplayCardEntityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048CC56B2B610DE2008DDD5B /* DisplayCardEntityData.swift */; };
 		0490CA0C2B763A87009A5AE8 /* AppDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0490CA0A2B763A87009A5AE8 /* AppDataModel.xcdatamodeld */; };
-		0490CA112B764B51009A5AE8 /* CategoryDataProviderObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0490CA102B764B51009A5AE8 /* CategoryDataProviderObserver.swift */; };
+		0490CA112B764B51009A5AE8 /* CategoryDataProviderObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0490CA102B764B51009A5AE8 /* CategoryDataProviderObserverProtocol.swift */; };
 		04C76F332B5E969E007D96C9 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C76F322B5E969E007D96C9 /* AddCardViewController.swift */; };
+		04DAD2972B7E0EB800CE30F8 /* CategoryDataProvider+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DAD2962B7E0EB800CE30F8 /* CategoryDataProvider+Converter.swift */; };
+		04DAD2992B7E115200CE30F8 /* CategoryDataProvider+Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DAD2982B7E115200CE30F8 /* CategoryDataProvider+Observer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,8 +118,10 @@
 		047602122B55B3DB00CC5D11 /* ConstraintsConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsConstructor.swift; sourceTree = "<group>"; };
 		048CC56B2B610DE2008DDD5B /* DisplayCardEntityData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCardEntityData.swift; sourceTree = "<group>"; };
 		0490CA0B2B763A87009A5AE8 /* AppDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppDataModel.xcdatamodel; sourceTree = "<group>"; };
-		0490CA102B764B51009A5AE8 /* CategoryDataProviderObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDataProviderObserver.swift; sourceTree = "<group>"; };
+		0490CA102B764B51009A5AE8 /* CategoryDataProviderObserverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDataProviderObserverProtocol.swift; sourceTree = "<group>"; };
 		04C76F322B5E969E007D96C9 /* AddCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
+		04DAD2962B7E0EB800CE30F8 /* CategoryDataProvider+Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryDataProvider+Converter.swift"; sourceTree = "<group>"; };
+		04DAD2982B7E115200CE30F8 /* CategoryDataProvider+Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryDataProvider+Observer.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 		0414DD342B70D19B00626D74 /* Cashback */ = {
 			isa = PBXGroup;
 			children = (
+				0414DD372B70D21100626D74 /* CashbackDataProvider.swift */,
 				0414DD352B70D1DD00626D74 /* CashbackManagerProtocol.swift */,
 				0414DD3B2B70E18B00626D74 /* CashbackManager.swift */,
 			);
@@ -143,9 +148,7 @@
 		0432EEF02B57CDC800C3274C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				0490CA0F2B764B25009A5AE8 /* Observers */,
 				0414DD342B70D19B00626D74 /* Cashback */,
-				0432EF102B57F95300C3274C /* DataProviders */,
 				04595F622B6BCF8800A58D40 /* Categories */,
 				0432EEF72B57D25100C3274C /* Cards */,
 			);
@@ -164,6 +167,7 @@
 		0432EEF72B57D25100C3274C /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				0432EF112B57F99100C3274C /* CardDataProvider.swift */,
 				0432EEF82B57D26D00C3274C /* CardManagerProtocol.swift */,
 				0432EEFC2B57D2CD00C3274C /* CardManager.swift */,
 			);
@@ -178,16 +182,6 @@
 				044FDF342B5AB57A0098F588 /* CardListViewController+Scrolling.swift */,
 			);
 			path = CardsList;
-			sourceTree = "<group>";
-		};
-		0432EF102B57F95300C3274C /* DataProviders */ = {
-			isa = PBXGroup;
-			children = (
-				0432EF112B57F99100C3274C /* CardDataProvider.swift */,
-				04595F602B6BCE5500A58D40 /* CategoryDataProvider.swift */,
-				0414DD372B70D21100626D74 /* CashbackDataProvider.swift */,
-			);
-			path = DataProviders;
 			sourceTree = "<group>";
 		};
 		0432EF132B57FAB200C3274C /* CoreData */ = {
@@ -284,6 +278,10 @@
 		04595F622B6BCF8800A58D40 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				0490CA102B764B51009A5AE8 /* CategoryDataProviderObserverProtocol.swift */,
+				04595F602B6BCE5500A58D40 /* CategoryDataProvider.swift */,
+				04DAD2962B7E0EB800CE30F8 /* CategoryDataProvider+Converter.swift */,
+				04DAD2982B7E115200CE30F8 /* CategoryDataProvider+Observer.swift */,
 				04595F632B6BCFDC00A58D40 /* CategoryManagerProtocol.swift */,
 				04595F652B6BCFFB00A58D40 /* CategoryManager.swift */,
 			);
@@ -400,14 +398,6 @@
 			path = PlaceOfPayment;
 			sourceTree = "<group>";
 		};
-		0490CA0F2B764B25009A5AE8 /* Observers */ = {
-			isa = PBXGroup;
-			children = (
-				0490CA102B764B51009A5AE8 /* CategoryDataProviderObserver.swift */,
-			);
-			path = Observers;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -487,6 +477,7 @@
 				044FDF302B5A5E1B0098F588 /* RoundButtonWithSettings.swift in Sources */,
 				0432EEEE2B57B92000C3274C /* UITabBar+PulseAnimation.swift in Sources */,
 				04595F6A2B6BD46100A58D40 /* CategoryListViewController+Buttons.swift in Sources */,
+				04DAD2972B7E0EB800CE30F8 /* CategoryDataProvider+Converter.swift in Sources */,
 				044FDF352B5AB57A0098F588 /* CardListViewController+Scrolling.swift in Sources */,
 				046E91DE2B53337800CC5128 /* PlaceOfPaymentCollectionViewController.swift in Sources */,
 				0432EEF92B57D26D00C3274C /* CardManagerProtocol.swift in Sources */,
@@ -496,7 +487,7 @@
 				0400D9A52B74CF3400A6A64A /* PlaceOfPaymentCollectionViewController+SetupData.swift in Sources */,
 				04595F682B6BD21600A58D40 /* CategoryListViewController.swift in Sources */,
 				0414DD3A2B70E0A900626D74 /* AddCardViewController+Notifications.swift in Sources */,
-				0490CA112B764B51009A5AE8 /* CategoryDataProviderObserver.swift in Sources */,
+				0490CA112B764B51009A5AE8 /* CategoryDataProviderObserverProtocol.swift in Sources */,
 				0436E8AD2B737AA20023E11B /* CashbackModel.swift in Sources */,
 				047602132B55B3DB00CC5D11 /* ConstraintsConstructor.swift in Sources */,
 				04C76F332B5E969E007D96C9 /* AddCardViewController.swift in Sources */,
@@ -517,6 +508,7 @@
 				0432EF122B57F99100C3274C /* CardDataProvider.swift in Sources */,
 				0436E8AB2B737A8B0023E11B /* CashbackModelProtocol.swift in Sources */,
 				0414DD382B70D21100626D74 /* CashbackDataProvider.swift in Sources */,
+				04DAD2992B7E115200CE30F8 /* CategoryDataProvider+Observer.swift in Sources */,
 				046E91C22B53227B00CC5128 /* AppDelegate.swift in Sources */,
 				0490CA0C2B763A87009A5AE8 /* AppDataModel.xcdatamodeld in Sources */,
 				04595F6E2B6BD63A00A58D40 /* AddCategoryViewController.swift in Sources */,
