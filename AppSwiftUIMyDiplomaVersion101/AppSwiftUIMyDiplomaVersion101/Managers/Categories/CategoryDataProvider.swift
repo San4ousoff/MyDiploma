@@ -10,8 +10,8 @@ import UIKit
 
 class CategoryDataProvider {
     
-    weak var observer: CategoryDataProviderObserver?
-    var observers: [CategoryDataProviderObserver] = []
+    weak var observer: CategoryDataProviderObserverProtocol?
+    var observers: [CategoryDataProviderObserverProtocol] = []
     
     let context: NSManagedObjectContext
     var categories: [CategoryEntity] = []

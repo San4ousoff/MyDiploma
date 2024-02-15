@@ -6,7 +6,7 @@
 //
 
 extension CategoryDataProvider {
-    func addObserver(_ observer: CategoryDataProviderObserver) {
+    func addObserver(_ observer: CategoryDataProviderObserverProtocol) {
         observers.append(observer)
     }
     
